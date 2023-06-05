@@ -1,0 +1,36 @@
+svxlink:
+  container_name: svxlink
+  image: svxlink
+  volumes:
+    - ./svxlink.conf:/etc/svxlink/svxlink.conf
+    - ./squelch.sh:/squelch.sh
+    - ./control.sh:/control.sh
+  command: svxlink
+  privileged: true
+  ports:
+    - 5200:5200
+    - 5198:5198/udp
+    - 5199:5199/udp
+    - 8080:8080
+
+remote1:
+  container_name: remote1
+  image: svxlink
+  volumes:
+    - ./remote1.conf:/etc/svxlink/remotetrx.conf
+    - ./squelch.sh:/squelch.sh
+  command: remotetrx
+  privileged: true
+  ports:
+    - 5211:5210
+
+remote2:
+  container_name: remote2
+  image: svxlink
+  volumes:
+    - ./remote2.conf:/etc/svxlink/remotetrx.conf
+    - ./squelch.sh:/squelch.sh
+  command: remotetrx
+  privileged: true
+  ports:
+    - 5212:5210
