@@ -1,3 +1,7 @@
+"""
+This module wraps around docker-compose and the various svxlink interfaces.
+It allows to control the remotes and voter, get statuses, and stop and start the containers.
+"""
 from datetime import datetime
 import docker
 import json
@@ -27,6 +31,10 @@ class Environment:
 
     @property
     def running(self):
+        """
+        check for all containers to be running
+        :return: the number of containers with status running
+        """
         return sum([c[1].status == "running" for c in self.containers.items()])
 
     def stop(self):
@@ -35,6 +43,10 @@ class Environment:
 
     @property
     def containers(self):
+        """
+        presents a dict of containers, indexed by their names
+        :return:
+        """
         containers = self.client.containers.list()
         result = dict()
         for container in containers:
@@ -42,6 +54,12 @@ class Environment:
         return result
 
     def start_pty_forwarder(self, name):
+        """
+        the PTY forwarder will read from the fifo and write to a normal file,
+        so we can expose the data outside of docker
+        :param name:
+        :return:
+        """
         self.log.debug("starting pty forwarder for {}".format(name))
         self.containers["svxlink"].exec_run("/bin/bash -c \"cat /dev/shm/{name} > /{name}\"".format(name=name), detach=True)
 
@@ -74,6 +92,13 @@ class Environment:
 
     @property
     def ptt_state(self):
+        """
+        returns the last known state of the transmitter:
+        - on: True
+        - off: False
+        - unknown: None
+        :return:
+        """
         with open("ptt", "r") as ptt_file:
             data = ptt_file.read()
             if not data:
@@ -86,6 +111,12 @@ class Environment:
             return None
 
     def wait_for_ptt(self, state: bool, timeout: int):
+        """
+        wait for a transmitter state, with a timeout
+        :param state:
+        :param timeout:
+        :return:
+        """
         start = datetime.now()
         while (datetime.now() - start).seconds < timeout:
             if self.ptt_state == state:
@@ -94,6 +125,10 @@ class Environment:
 
     @property
     def voter_state(self):
+        """
+        returns the last complete(!) voter state as a dict, with an added timestamp field
+        :return:
+        """
         with open("state", "r") as state_file:
             state_raw = state_file.read()
             if state_raw[-1] != '\n':
@@ -112,10 +147,18 @@ class Environment:
             result[item["name"]] = item
         return result
 
-    def wait_for_remote_active(self, name: str, state: bool, timeout: int):
+    def wait_for_remote_state(self, name: str, state: str, expected: bool, timeout: int):
+        """
+        wait for a remote to have state set to expected, with a timeout
+        :param state: ["active", "enabled", "sql_open"]
+        :param name:
+        :param expected:
+        :param timeout:
+        :return:
+        """
         start = datetime.now()
         while (datetime.now() - start).seconds < timeout:
-            if self.voter_state.get(name, {}).get("active") == state:
+            if self.voter_state.get(name, {}).get(state) == expected:
                 return True
         return False
 

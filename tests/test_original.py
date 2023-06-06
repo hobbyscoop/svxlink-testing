@@ -1,3 +1,6 @@
+"""
+This file tests the functions that we did not patch. Just to make sure these still work correctly
+"""
 from environment import Environment
 import unittest
 from time import sleep
@@ -16,13 +19,26 @@ class Test(unittest.TestCase):
         self.env.stop()
 
     def test_switchover_by_squelch(self):
+        """
+        the voter should switch over to the other active remote, after the first one closes the squelch
+        """
         self.env.open_squelch("remote1")
         self.assertEqual(self.env.wait_for_ptt(True, 5), True, "transmitter should be on")
-        self.assertEqual(self.env.wait_for_remote_active("remote1", True, 5), True, "remote1 should become active")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, 5), True, "remote1 should become active")
         self.env.open_squelch("remote2")
-        self.assertEqual(self.env.wait_for_remote_active("remote2", True, 5), False, "remote2 should still be off, as remote1 is still active")
+        self.assertEqual(self.env.wait_for_remote_state("remote2", "active", True, 5), False, "remote2 should still be off, as remote1 is still active")
         self.env.open_squelch("remote1", False)
-        self.assertEqual(self.env.wait_for_remote_active("remote2", True, 5), True, "remote1 squelch is closed, remote2 should take over")
+        self.assertEqual(self.env.wait_for_remote_state("remote2", "active", True, 5), True, "remote1 squelch is closed, remote2 should take over")
+
+    def test_switchover_by_siglev(self):
+        """
+        the voter should switch over to the remote which is louder (in siglev)
+        """
+        self.env.open_squelch("remote2")
+        self.assertEqual(self.env.wait_for_ptt(True, 5), True, "transmitter should be on")
+        self.assertEqual(self.env.wait_for_remote_state("remote2", "active", True, 5), True, "remote2 should become active")
+        self.env.open_squelch("remote1")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, 5), True, "remote1 become active, as it's louder")
 
 
 if __name__ == '__main__':
