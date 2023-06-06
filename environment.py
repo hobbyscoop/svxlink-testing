@@ -4,7 +4,6 @@ import json
 import logging
 from subprocess import check_output
 from time import sleep
-logging.basicConfig(level=logging.INFO)
 
 
 class Environment:
@@ -122,6 +121,7 @@ class Environment:
 
 
 def main():
+    logging.basicConfig(level=logging.INFO)
     dc = Environment()
     dc.start()
     print(dc.ptt_state)
