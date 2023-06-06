@@ -13,7 +13,7 @@ on:
           - master
           - hobbyscoop
         default: hobbyscoop
-
+run-name: Test ${{ inputs.branch }}
 jobs:
   test:
     timeout-minutes: 60
