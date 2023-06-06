@@ -5,17 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
-    inputs:
-      branch:
-        type: choice
-        description: branch to test (master is upstream, hobbyscoop is with patches)
-        options:
-          - master
-          - hobbyscoop
-        default: hobbyscoop
-run-name: Test ${{ inputs.branch }}
+
 jobs:
   test:
+    strategy:
+      matrix:
+        branch: ["master", "hobbyscoop"]
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
@@ -24,7 +19,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Build docker image
-      run: scripts/build-image.sh ${{ inputs.branch }}
+      run: scripts/build-image.sh ${{ matrix.branch }}
 
     - name: Create IO
       run: scripts/create-IO.sh
