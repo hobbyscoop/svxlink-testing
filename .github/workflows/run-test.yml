@@ -1,10 +1,7 @@
 name: Test
 
-on:
-  push:
-    branches:
-    - main
-
+on: workflow_dispatch
+  
 jobs:
   docker:
     timeout-minutes: 10
