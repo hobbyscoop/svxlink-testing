@@ -1,0 +1,5 @@
+svxlink/
+venv/
+.pytest_cache/
+ptt
+state
