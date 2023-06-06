@@ -5,14 +5,14 @@ on:
     branches:
       - main
   workflow_dispatch:
-  inputs:
-    branch:
-      type: choice
-      description: branch to test (master is upstream, hobbyscoop is with patches)
-      options:
-        - master
-        - hobbyscoop
-      default: hobbyscoop
+    inputs:
+      branch:
+        type: choice
+        description: branch to test (master is upstream, hobbyscoop is with patches)
+        options:
+          - master
+          - hobbyscoop
+        default: hobbyscoop
 
 jobs:
   test:
