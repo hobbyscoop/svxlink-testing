@@ -1,3 +1,3 @@
 #!/bin/bash
-rm -rf ptt state
-touch  ptt state
+rm -rf ptt state audio
+touch  ptt state audio

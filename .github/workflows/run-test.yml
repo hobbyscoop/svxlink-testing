@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Build docker image
-      run: scripts/build-image.sh ${{ matrix.branch }}
+      run: scripts/build-images.sh ${{ matrix.branch }}
 
     - name: Create IO
       run: scripts/create-IO.sh

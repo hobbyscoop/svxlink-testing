@@ -11,6 +11,11 @@ from time import sleep
 
 
 class Environment:
+    remote_tones = {
+        300: "remote1",
+        600: "remote2",
+    }
+
     def __init__(self):
         self.log = logging.getLogger(__class__.__name__)
         self.client = docker.from_env()
@@ -27,6 +32,8 @@ class Environment:
             sleep(1)
         self.start_pty_forwarder("state")
         self.start_pty_forwarder("ptt")
+        # reads the transmitted audio frequency from the audio stream
+        self.containers["svxlink"].exec_run("/bin/usr/bin/python3 /goertzel.py", detach=True)
         self.reset()
 
     @property
@@ -159,6 +166,25 @@ class Environment:
         start = datetime.now()
         while (datetime.now() - start).seconds < timeout:
             if self.voter_state.get(name, {}).get(state) == expected:
+                return True
+        return False
+
+    @property
+    def active_remote_by_tone(self):
+        with open("audio", "r") as audio:
+            ts, freq = audio.read().split(" ", 1)
+            return self.remote_tones.get(int(freq), None)
+
+    def wait_for_remote_by_tone(self, name: str, timeout: int):
+        """
+        wait for a remote to be found by tone in the audio output
+        :param name:
+        :param timeout:
+        :return:
+        """
+        start = datetime.now()
+        while (datetime.now() - start).seconds < timeout:
+            if self.active_remote_by_tone == name:
                 return True
         return False
 

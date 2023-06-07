@@ -3,8 +3,10 @@ svxlink:
   image: svxlink
   volumes:
     - ${PWD}/configs/svxlink.conf:/etc/svxlink/svxlink.conf
+    - ${PWD}/goertzel.py:/goertzel.py
     - ${PWD}/state:/state
     - ${PWD}/ptt:/ptt
+    - ${PWD}/audio:/audio
   command: svxlink
   privileged: true
   ports:
