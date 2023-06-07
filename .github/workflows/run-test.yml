@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         branch: ["master", "hobbyscoop"]
     timeout-minutes: 60
