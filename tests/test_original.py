@@ -2,7 +2,10 @@
 This file tests the functions that we did not patch. Just to make sure these still work correctly
 """
 from environment import Environment
+import logging
 import unittest
+from subprocess import check_output
+import threading
 from time import sleep
 
 

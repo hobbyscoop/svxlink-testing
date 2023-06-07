@@ -27,9 +27,11 @@ class Environment:
             self.stop()
         self.log.debug("running docker-compose up -d")
         check_output(["docker-compose", "up", "-d"])
+
         while self.running != 3:
             self.log.debug("waiting for containers to start...")
             sleep(1)
+
         self.start_pty_forwarder("state")
         self.start_pty_forwarder("ptt")
         # reads the transmitted audio frequency from the audio stream
@@ -45,6 +47,8 @@ class Environment:
         return sum([c[1].status == "running" for c in self.containers.items()])
 
     def stop(self):
+        for line in check_output(["docker-compose", "logs", "--no-color"]).splitlines():
+            self.log.info(line)
         self.log.info("stopping instances")
         check_output(["docker-compose", "down"])
 
@@ -177,7 +181,7 @@ class Environment:
                 freq = audio.readlines()[-2]  # take the second last, so we're sure it's complete
                 self.log.debug("Tone: %s", freq)
             except IndexError:
-                self.log.warning("no audio data yet")
+                # self.log.warning("no audio data yet")
                 return None
             return self.remote_tones.get(int(freq), None)
 

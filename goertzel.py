@@ -95,24 +95,27 @@ if __name__ == '__main__':
 
     logging.info("starting loop")
     while True:
-        # start over every loop so we don't queue up data
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.bind(("127.0.0.1", 10000))
+        try:
+            # start over every loop, so we don't queue up data
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock.bind(("127.0.0.1", 10000))
 
-        # fetch 2 ch, 2 byte samples
-        data, size = sock.recvfrom(SAMPLE_RATE * 2 * 2 * WINDOW_SIZE)
-        logging.debug("got %d bytes", size)
-        samples = convert_interleaved_to_windowed(data, WINDOW_SIZE)
+            # fetch 2 ch, 2 byte samples
+            data, _ = sock.recvfrom(SAMPLE_RATE * 2 * 2 * WINDOW_SIZE)
+            logging.debug("got {} bytes".format(len(data)))
+            samples = convert_interleaved_to_windowed(data, WINDOW_SIZE)
 
-        result = goertzel(samples, SAMPLE_RATE, (200, 400), (500, 700))
-        freq = find_closest_number(result, [300, 600])
-        logging.debug("writing to file")
-        with open("/audio", "a") as output:
-            # output.write("{} {}\n".format(datetime.now().timestamp(), freq))
-            output.write(str(freq)+"\n")
-        # print(freq)
-        sock.close()
+            result = goertzel(samples, SAMPLE_RATE, (200, 400), (500, 700))
+            freq = find_closest_number(result, [300, 600])
+            logging.debug("writing to file: {}".format(freq))
+            with open("/audio", "a") as output:
+                # output.write("{} {}\n".format(datetime.now().timestamp(), freq))
+                output.write(str(freq)+"\n")
+            # print(freq)
+            sock.close()
 
-        # rate limit
-        logging.info("sleeping")
-        sleep(0.1)
+            # rate limit
+            logging.info("sleeping")
+            sleep(0.1)
+        except Exception as e:
+            logging.error(e)
