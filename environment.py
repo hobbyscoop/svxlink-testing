@@ -33,7 +33,7 @@ class Environment:
         self.start_pty_forwarder("state")
         self.start_pty_forwarder("ptt")
         # reads the transmitted audio frequency from the audio stream
-        self.containers["svxlink"].exec_run("/bin/usr/bin/python3 /goertzel.py", detach=True)
+        self.containers["svxlink"].exec_run("/usr/bin/python3 /goertzel.py", detach=True)
         self.reset()
 
     @property
@@ -172,7 +172,13 @@ class Environment:
     @property
     def active_remote_by_tone(self):
         with open("audio", "r") as audio:
-            ts, freq = audio.read().split(" ", 1)
+            # ts, freq = audio.read().split(" ", 1)
+            try:
+                freq = audio.readlines()[-2]  # take the second last, so we're sure it's complete
+                self.log.debug("Tone: %s", freq)
+            except IndexError:
+                self.log.warning("no audio data yet")
+                return None
             return self.remote_tones.get(int(freq), None)
 
     def wait_for_remote_by_tone(self, name: str, timeout: int):
@@ -195,10 +201,9 @@ def main():
     dc.start()
     print(dc.ptt_state)
     dc.open_squelch("remote1")
-    print(dc.ptt_state)
-    print(dc.voter_state)
+    print(dc.wait_for_remote_by_tone("remote1", 5))
     # sleep(5)
-    dc.stop()
+    # dc.stop()
 
 
 if __name__ == "__main__":

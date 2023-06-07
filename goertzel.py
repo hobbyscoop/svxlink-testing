@@ -1,9 +1,12 @@
 from datetime import datetime
+import logging
 import math
 import numpy as np
 import socket
 import struct
 from time import sleep
+
+logging.basicConfig(filename="/log", level=logging.DEBUG)
 
 
 def convert_interleaved_to_windowed(raw_bytes, window_size):
@@ -90,6 +93,7 @@ if __name__ == '__main__':
     SAMPLE_RATE = 16000
     WINDOW_SIZE = 1024
 
+    logging.info("starting loop")
     while True:
         # start over every loop so we don't queue up data
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -97,14 +101,18 @@ if __name__ == '__main__':
 
         # fetch 2 ch, 2 byte samples
         data, size = sock.recvfrom(SAMPLE_RATE * 2 * 2 * WINDOW_SIZE)
+        logging.debug("got %d bytes", size)
         samples = convert_interleaved_to_windowed(data, WINDOW_SIZE)
 
         result = goertzel(samples, SAMPLE_RATE, (200, 400), (500, 700))
         freq = find_closest_number(result, [300, 600])
-        with open("/audio", "w") as output:
-            output.write("{} {}\n".format(datetime.now().timestamp(), freq))
+        logging.debug("writing to file")
+        with open("/audio", "a") as output:
+            # output.write("{} {}\n".format(datetime.now().timestamp(), freq))
+            output.write(str(freq)+"\n")
         # print(freq)
         sock.close()
 
         # rate limit
+        logging.info("sleeping")
         sleep(0.1)
