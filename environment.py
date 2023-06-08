@@ -26,6 +26,10 @@ class Environment:
         self.branch = os.environ.get("BRANCH", "hobbyscoop")
 
     def compose_logger(self):
+        """
+        prints the output of the containers into the log
+        :return:
+        """
         with Popen(["docker-compose", "logs", "-f", "--no-color"], stdout=PIPE, universal_newlines=True) as proc:
             self.log.info("Started log tailing")
             while proc.poll() is None:
@@ -37,12 +41,15 @@ class Environment:
                         self.log.getChild("docker-compose").info(line.strip())
 
     def start(self):
+        """
+        start the environment
+        :return:
+        """
         self.log.info("starting instances")
         if self.running > 0:
             self.log.warning("instances already running, stopping them first")
             self.stop()
         self.log.debug("running docker-compose up -d")
-        # check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d"])
         check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d", "remote1"])
         check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d", "remote2"])
         check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d", "svxlink"])
@@ -52,10 +59,11 @@ class Environment:
             self.log.debug("waiting for containers to start...")
             sleep(1)
 
+        # start sidecars
         self.start_pty_forwarder("state")
         self.start_pty_forwarder("ptt")
-        # reads the transmitted audio frequency from the audio stream
         self.containers["svxlink"].exec_run("/usr/bin/python3 /goertzel.py", detach=True)
+
         self.log.info("waiting for remotes to connect")
         if not self.wait_for_find_in_logs("svxlink", "172.17.0.1:5211: RemoteTrx protocol", 5):
             self.log.error("timeout waiting for remote1 to connect to svxlink")
