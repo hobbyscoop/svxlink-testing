@@ -1,0 +1,6 @@
+svxlink:
+  image: svxlink:master
+remote1:
+  image: svxlink:master
+remote2:
+  image: svxlink:master

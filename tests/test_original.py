@@ -3,9 +3,8 @@ This file tests the functions that we did not patch. Just to make sure these sti
 """
 from environment import Environment
 import unittest
-from time import sleep
 
-WAIT_TIME = 10
+WAIT_TIME = 5
 
 
 class Test(unittest.TestCase):
@@ -14,8 +13,8 @@ class Test(unittest.TestCase):
         self.env = Environment()
 
     def setUp(self):
-        self.env.start()
-        sleep(2)  # allow svxlink and remotes to start up FIXME: detect this
+        if not self.env.start():
+            raise RuntimeError("failed to set up env")
 
     def tearDown(self):
         self.env.stop()
@@ -24,11 +23,11 @@ class Test(unittest.TestCase):
         """
         the voter should switch over to the other active remote, after the first one closes the squelch
         """
-        self.env.open_squelch("remote1")
+        self.env.open_squelch("remote1", True)
         self.assertEqual(self.env.wait_for_ptt(True, WAIT_TIME), True, "transmitter should be on")
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "[initial] remote1 should be audible")
-        self.env.open_squelch("remote2")
+        self.env.open_squelch("remote2", True)
         self.assertEqual(self.env.wait_for_remote_state("remote2", "active", True, WAIT_TIME), False, "remote2 should still be off, as remote1 is still active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "[continue] remote1 should still be audible")
         self.env.open_squelch("remote1", False)
@@ -39,11 +38,11 @@ class Test(unittest.TestCase):
         """
         the voter should switch over to the remote which is louder (in siglev)
         """
-        self.env.open_squelch("remote2")
+        self.env.open_squelch("remote2", True)
         self.assertEqual(self.env.wait_for_ptt(True, WAIT_TIME), True, "transmitter should be on")
         self.assertEqual(self.env.wait_for_remote_state("remote2", "active", True, WAIT_TIME), True, "remote2 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote2", WAIT_TIME), True, "remote2 should be audible")
-        self.env.open_squelch("remote1")
+        self.env.open_squelch("remote1", True)
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 become active, as it's louder")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "remote1 should be audible")
 
@@ -51,11 +50,11 @@ class Test(unittest.TestCase):
         """
         the voter should switch over to the remote which is louder (in siglev)
         """
-        self.env.open_squelch("remote2")
+        self.env.open_squelch("remote2", True)
         self.assertEqual(self.env.wait_for_ptt(True, WAIT_TIME), True, "transmitter should be on")
         self.assertEqual(self.env.wait_for_remote_state("remote2", "active", True, WAIT_TIME), True, "remote2 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote2", WAIT_TIME), True, "[initial] remote2 should be audible")
-        self.env.open_squelch("remote1")
+        self.env.open_squelch("remote1", True)
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 become active, as it's louder")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "[switchover] remote1 should be audible")
         self.env.open_squelch("remote1", False)

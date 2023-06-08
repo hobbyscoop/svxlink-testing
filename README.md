@@ -11,6 +11,14 @@ This repo helps us testing svxlink to make sure our patches still work.
   * `master`: svxlink upstream
   * `hobbyscoop`: with hobbyscoop patches
 
+Or manually:
+```bash
+./scripts/build-images.sh <branch>
+BRANCH=<branch> pytest
+```
+Where `<branch>` is either master (upstream) or `hobbyscoop`.
+If the branch wasn't updated, there is no need to rerun `build-images.sh`.
+
 ## Remotes
 These values are hard-coded
 

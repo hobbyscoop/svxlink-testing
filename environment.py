@@ -5,8 +5,11 @@ It allows to control the remotes and voter, get statuses, and stop and start the
 from datetime import datetime
 import docker
 import json
+import os
 import logging
-from subprocess import check_output
+from threading import Thread
+import select
+from subprocess import check_output, PIPE, Popen
 from time import sleep
 
 
@@ -15,10 +18,23 @@ class Environment:
         300: "remote1",
         600: "remote2",
     }
+    compose_logger_process = None
 
     def __init__(self):
         self.log = logging.getLogger(__class__.__name__)
         self.client = docker.from_env()
+        self.branch = os.environ.get("BRANCH", "hobbyscoop")
+
+    def compose_logger(self):
+        with Popen(["docker-compose", "logs", "-f", "--no-color"], stdout=PIPE, universal_newlines=True) as proc:
+            self.log.info("Started log tailing")
+            while proc.poll() is None:
+                # use select to check if there is data available to read
+                readable, _, _ = select.select([proc.stdout], [], [], 0)
+                if proc.stdout in readable:
+                    # read and print all available output
+                    for line in iter(proc.stdout.readline, ''):
+                        self.log.getChild("docker-compose").info(line.strip())
 
     def start(self):
         self.log.info("starting instances")
@@ -26,8 +42,12 @@ class Environment:
             self.log.warning("instances already running, stopping them first")
             self.stop()
         self.log.debug("running docker-compose up -d")
-        check_output(["docker-compose", "up", "-d"])
-
+        # check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d"])
+        check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d", "remote1"])
+        check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d", "remote2"])
+        check_output(["docker-compose", "-f", "docker-compose.yaml", "-f", "docker-compose-{}.yaml".format(self.branch), "up", "-d", "svxlink"])
+        self.compose_logger_process = Thread(target=self.compose_logger)
+        self.compose_logger_process.start()
         while self.running != 3:
             self.log.debug("waiting for containers to start...")
             sleep(1)
@@ -36,7 +56,26 @@ class Environment:
         self.start_pty_forwarder("ptt")
         # reads the transmitted audio frequency from the audio stream
         self.containers["svxlink"].exec_run("/usr/bin/python3 /goertzel.py", detach=True)
-        self.reset()
+        self.log.info("waiting for remotes to connect")
+        if not self.wait_for_find_in_logs("svxlink", "172.17.0.1:5211: RemoteTrx protocol", 5):
+            self.log.error("timeout waiting for remote1 to connect to svxlink")
+            return False
+        if not self.wait_for_find_in_logs("svxlink", "172.17.0.1:5212: RemoteTrx protocol", 5):
+            self.log.error("timeout waiting for remote1 to connect to svxlink")
+            return False
+        self.log.info("startup done")
+        return True
+
+    def find_in_logs(self, container: str, term: str):
+        logs = check_output(["docker-compose", "logs", "--no-color", "--no-log-prefix", container])
+        return logs.find(bytes(term, 'utf-8'))
+
+    def wait_for_find_in_logs(self, container: str, term: str, timeout: int):
+        start = datetime.now()
+        while (datetime.now() - start).seconds < timeout:
+            if self.find_in_logs(container, term):
+                return True
+        return False
 
     @property
     def running(self):
@@ -47,8 +86,6 @@ class Environment:
         return sum([c[1].status == "running" for c in self.containers.items()])
 
     def stop(self):
-        for line in check_output(["docker-compose", "logs", "--no-color"]).splitlines():
-            self.log.info(line)
         self.log.info("stopping instances")
         check_output(["docker-compose", "down"])
 
@@ -203,11 +240,10 @@ def main():
     logging.basicConfig(level=logging.INFO)
     dc = Environment()
     dc.start()
-    print(dc.ptt_state)
     dc.open_squelch("remote1")
-    print(dc.wait_for_remote_by_tone("remote1", 5))
-    # sleep(5)
-    # dc.stop()
+    dc.wait_for_remote_by_tone("remote1", 5)
+    sleep(5)
+    dc.stop()
 
 
 if __name__ == "__main__":

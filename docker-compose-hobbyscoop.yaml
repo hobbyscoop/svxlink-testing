@@ -1,0 +1,7 @@
+svxlink:
+  image: svxlink:hobbyscoop
+remote1:
+  image: svxlink:hobbyscoop
+remote2:
+  image: svxlink:hobbyscoop
+  
