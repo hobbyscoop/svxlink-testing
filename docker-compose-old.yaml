@@ -1,0 +1,7 @@
+svxlink:
+  image: svxlink:old
+remote1:
+  image: svxlink:old
+remote2:
+  image: svxlink:old
+  

@@ -7,9 +7,10 @@ import docker
 import json
 import os
 import logging
-from threading import Thread
+import re
 import select
 from subprocess import check_output, PIPE, Popen
+from threading import Thread
 from time import sleep
 
 
@@ -128,7 +129,9 @@ class Environment:
         self.containers[name].exec_run("/bin/bash -c \"echo {state} > /tmp/sql\"".format(state=state))
 
     def enable_remote(self, name):
+        # FIXME: support old commands
         self.log.info("enabling {}".format(name))
+        self.containers["svxlink"].exec_run("/bin/bash -c \"echo {name}:1 > /dev/shm/voter\"".format(name=name))
         self.containers["svxlink"].exec_run("/bin/bash -c \"echo ENABLE {name} > /dev/shm/voter\"".format(name=name))
 
     def mute_remote(self, name):
@@ -137,6 +140,7 @@ class Environment:
 
     def disable_remote(self, name):
         self.log.info("disabling {}".format(name))
+        self.containers["svxlink"].exec_run("/bin/bash -c \"echo {name}:0 > /dev/shm/voter\"".format(name=name))
         self.containers["svxlink"].exec_run("/bin/bash -c \"echo DISABLE {name} > /dev/shm/voter\"".format(name=name))
 
     def reset(self):
@@ -179,14 +183,64 @@ class Environment:
                 return True
         return False
 
+    def parse_old_state(self, data):
+        """
+        Try to parse the state info in the old format, or raise an exception
+        :param data:
+        :return:
+        """
+        status_options = {
+            "_": "closed",
+            ":": "open",
+            "*": "active",
+            "#": "off",
+        }
+        # old format support: remote1*+1000 remote2_+030
+        # "_": "closed",
+        # ":": "open",
+        # "*": "active",
+        # "#": "off",
+        # new format: {'active': False, 'enabled': True, 'id': '?', 'name': 'remote1', 'siglev': 0, 'sql_open': False}
+        states = []
+        for item in data.split(' '):
+            if len(item) < 4:
+                break
+            state = {"orig": item}
+            remote, info = re.split(r'[_:#*]', item)
+            state["name"] = remote
+            status = item[len(remote):len(remote)+1]
+            if status == "_":
+                state["enabled"] = True
+                state["sql_open"] = False
+                state["active"] = False
+            elif status == ":":
+                state["enabled"] = True
+                state["sql_open"] = True
+                state["active"] = False
+            elif status == "*":
+                state["enabled"] = True
+                state["sql_open"] = True
+                state["active"] = True
+            elif status == "#":
+                state["enabled"] = False
+            else:
+                raise ValueError("status wrong?", status)
+            state["siglev"] = int(info[1:])
+            states.append(state)
+        return states
+
     @property
     def voter_state(self):
         """
         returns the last complete(!) voter state as a dict, with an added timestamp field
         :return:
         """
+
         with open("state", "r") as state_file:
             state_raw = state_file.read()
+            if len(state_raw) < 1:
+                # no data at all yet
+                return {}
             if state_raw[-1] != '\n':
                 # last line isn't complete, take the one before
                 state_raw = state_raw.splitlines()[-2]
@@ -196,8 +250,11 @@ class Environment:
         try:
             state = json.loads(state_json)
         except Exception as e:
-            self.log.error("failed parsing state as json with error: %s and json: %s", e, state_json)
-            return {}
+            try:
+                state = self.parse_old_state(state_json)
+            except Exception as e:
+                self.log.error("failed parsing state with error: %s and data: %s", e, state_json)
+                return {}
         result = {"time": datetime.fromtimestamp(float(timestamp))}
         for item in state:
             result[item["name"]] = item

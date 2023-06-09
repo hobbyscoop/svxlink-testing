@@ -10,6 +10,7 @@ This repo helps us testing svxlink to make sure our patches still work.
 * run the Github Action named `test`, select the branch to test:
   * `master`: svxlink upstream
   * `hobbyscoop`: with hobbyscoop patches
+  * `old`: old repo with patches
 
 Or manually:
 ```bash
