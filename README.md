@@ -54,6 +54,10 @@ it is not selected by the voter, as the voter still thinks the squelch is closed
 
 ## The tests
 The code for the tests can be found in [tests/test_original.py](tests/test_original.py).
+The results are here:
+ * [old (2018 patches)](report-old.html)
+ * [upstream master](report-master.html)
+ * [current hobbyscoop patches](report-hobbyscoop.html)
 
 ## Running tests using MUTE command to silence remote
 This is close to the 2018 patches, as it invokes `MUTE_CONTENT` (see [here]([here](https://github.com/hsmade/svxlink/blame/master/src/svxlink/trx/Voter.cpp#L192)).

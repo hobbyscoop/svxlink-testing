@@ -42,7 +42,7 @@ jobs:
       run: |
         ret=0
         BRANCH=${{ matrix.branch }} pytest --html=report-${{ matrix.branch }}.html --self-contained-html || ret=1
-        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.name "Continuous Integration"
         git config --global user.email "hobbyscoop@users.noreply.github.com"
         git add report-${{ matrix.branch }}.html
         git commit -am 'update report-${{ matrix.branch }}.html'
