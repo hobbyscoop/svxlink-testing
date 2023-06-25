@@ -27,100 +27,66 @@ These values are hard-coded
 | remote2 | 30     | 588  |
 
 # Current test results - failing tests
-Patches loaded:
- * [update voter PTY on enable/disable of Rx](https://github.com/sm0svx/svxlink/commit/12d0676785bcbf1c4b4297428ebd314f39ffd935)
-
-## using DISABLE command to silence remote
-This invokes `MUTE_ALL`, which isn't what we were doing in the 2018 patches.
-
-### tests/test_original.py::Test::test_reselect_open_disable_enable_interrupt - AssertionError: False != True : remote1 should become active
-Test description: the voter should reselect a remote that is disabled and then enabled, if another remote was selected during disable.
-This works correctly with the 2018 patches.
-
-Test sequence:
-* open squelch for remote 1 and 2
-* disable remote 1 ([which closes the squelch](https://github.com/sm0svx/svxlink/blob/8493ff1c66236e1d058306a7105f7303e3285d90/src/svxlink/trx/NetRx.cpp#L258))
-* expect remote 2 to be selected
-* enable remote 1
-* expect remote 1 to be reselected (has higher siglev) <- fails
-
-#### Reason
-This seems intentional, as the remote is disabled, so the sql events are not coming through.
-
-### tests/test_original.py::Test::test_select_disable_open_enable - AssertionError: False != True : transmitter should be on
-Test description: the voter should select if a disabled remote is opened and enabled.
-This works correctly with the 2018 patches.
-
-Test sequence:
-* disable remote 1
-* open squelch on remote 1 (which signal doesn't arrive as the remote is disabled)
-* enable remote 1
-* expect transmitter to open TX <- fails
-
-#### Reason
-This seems intentional, as the remote is disabled
-The NetRx [ignores the squelch update when disabled](https://github.com/sm0svx/svxlink/blob/8493ff1c66236e1d058306a7105f7303e3285d90/src/svxlink/trx/NetRx.cpp#L443)
-Which implies that the idea of sm0svx is to use mute for this, not disable.
-This is then not ending up [here](https://github.com/sm0svx/svxlink/blob/8493ff1c66236e1d058306a7105f7303e3285d90/src/svxlink/trx/Voter.cpp#L650),
-
-## using MUTE command to silence remote
-This is closed to the 2018 patches, as it invokes `MUTE_CONTENT` (see [here]([here](https://github.com/hsmade/svxlink/blame/master/src/svxlink/trx/Voter.cpp#L192)).
-However, the decisions made when a remote is muted, are different then in the 2018 patches.
-
-### tests/test_original.py::Test::test_disable_unselect_off - AssertionError: False != True : transmitter should be off
-Test description: the voter should unselect a remote that is disabled
-This works correctly with the 2018 patches.
-
-Test sequence:
-* open squelch for remote 1
-* mute remote 1
-* expect the TX to close <- fails
-
-#### Reason
-The `MUTE_CONTENT` only mutes the audio, but doesn't stop squelch or siglev signals from coming through.
-
-### tests/test_original.py::Test::test_disable_unselect_switchover - AssertionError: False != True : remote2 should become active
-Test description: the voter should switch over to another remote if the active remote is disabled
-This works correctly with the 2018 patches.
-
-Test sequence:
-* open squelch for remote 1 (with higher siglev)
-* open squelch for remote 2
-* mute remote 1
-* expect remote 2 to become selected <- fails: sticks with remote 1
-
-#### Reason
-The `MUTE_CONTENT` only mutes the audio, but doesn't stop squelch or siglev signals from coming through.
-
-### tests/test_original.py::Test::test_reselect_open_disable_enable_interrupt - AssertionError: False != True : remote2 should become active
-Test description: the voter should reselect a remote that is disabled and then enabled, if another remote was selected during disable
-This works correctly with the 2018 patches.
-
-Test sequence:
-* open squelch for remote 1 and 2
-* mute remote 1
-* expect remote 2 to be selected <- fails here, unless the sql is set to off in NetRx on mute
-* enable remote 1
-* expect remote 1 to be reselected (has higher siglev) <- fails here
-
-#### Reason
-Remote isn't deselected because its squelch isn't closed. If this is fixed by modifying NetRx, 
-the next problem is that remote 1 isn't reselected, because it's squelch is still off.
+Patches loaded in hobbyscoop branch:
+ * [update voter PTY on enable/disable of Rx](https://github.com/sm0svx/svxlink/commit/624f77f16c9ffa9069bbe0efd869a7dc6db2dab8)
+ * [always send all fields to voter PTY](https://github.com/sm0svx/svxlink/commit/fd1ca7004e7b8824eaad2e079003227b0bb07e48)
+ * [force close squelch on MUTE](https://github.com/sm0svx/svxlink/commit/2f8a0dbe2e92359eaa53feeb2f0fc855a988ad10)
+ * branch SHA [fd1ca700](https://github.com/hobbyscoop/svxlink/commit/fd1ca7004e7b8824eaad2e079003227b0bb07e48)
 
 ## Summary
-When comparing the 2018 patches against master (2023), the main difference is that in the 2018 patches the enabled state
-was responded to [in the voter](https://github.com/hsmade/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L809) where this
-[is not the case anymore in 2023](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L818).
-Instead, in 2023 the disabled state (which uses `MUTE_ALL`), stops the siglev and squelch updates from coming into the voter.
-and the mute state (which uses `MUTE_CONTENT`), lets them through, but fails to deselect the remote.
+When comparing the 2018 patches against upstream master ([8493ff1](https://github.com/sm0svx/svxlink/commit/8493ff1c66236e1d058306a7105f7303e3285d90)),
+the main difference is that with the 2018 patches the enabled state was responded to [in the voter](https://github.com/hsmade/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L809) 
+which [is not the case anymore in upstream](https://github.com/sm0svx/svxlink/blob/8493ff1c66236e1d058306a7105f7303e3285d90/src/svxlink/trx/Voter.cpp#L818).
+Instead, in upstream the DISABLE command (which uses `MUTE_ALL`), stops the siglev and squelch updates from coming into the voter at all,
+and the MUTE command (which uses `MUTE_CONTENT`) lets them through. 
+Due to this, MUTE fails to make an active receiver inactive. It will stay selected, without any audio.
 
-A remote is in fact disabled on mute as per [this code](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L1392C5-L1392C17).
-And then during selection of a new bestrx, is [taken into account](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L751).
-When *disabling* a remote, the deselection is triggered by [setting the squelch state](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/NetRx.cpp#L256-L262)
+A receiver is disabled on MUTE as per [this code](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L1392C5-L1392C17).
+And then during selection of a new bestrx, it's disabled state is [taken into account](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L751).
+When issuing DISABLE on a remote, the 'deselection' is triggered by [setting the squelch state](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/NetRx.cpp#L256-L262)
 and then [this code](https://github.com/sm0svx/svxlink/blob/master/src/svxlink/trx/Voter.cpp#L829) starts a vote.
-This only works if the squelch is closed, though.
 
-When adding `sql_is_open = false;` before [the break](https://github.com/sm0svx/svxlink/blob/8493ff1c66236e1d058306a7105f7303e3285d90/src/svxlink/trx/NetRx.cpp#L253)
-the active Rx gets demoted correctly on *mute*.
-However `test_reselect_open_disable_enable_interrupt` still fails, but later in the test. Now it still won't reselect remote 1 after it's
-enabled without a new squelch event, as the original squelch isn't stored. 
+To make sure an active receiver is 'deselected' when MUTE is issued, we can add `sql_is_open = false;` before [the break](https://github.com/sm0svx/svxlink/blob/8493ff1c66236e1d058306a7105f7303e3285d90/src/svxlink/trx/NetRx.cpp#L253).
+This triggers the voter to call `findBestRx`, similarly to how this happens for DISABLE.
+This however overrides the squelch state of the muted receiver, which introduces another problem:
+if the now inactive receiver is enabled again, and the actual squelch on the receiver is still open, 
+it is not selected by the voter, as the voter still thinks the squelch is closed after overriding it.
+
+## The tests
+The code for the tests can be found in [tests/test_original.py](tests/test_original.py).
+
+## Running tests using MUTE command to silence remote
+This is close to the 2018 patches, as it invokes `MUTE_CONTENT` (see [here]([here](https://github.com/hsmade/svxlink/blame/master/src/svxlink/trx/Voter.cpp#L192)).
+However, the decisions made when a remote is muted, are different then in the 2018 patches.
+The results are for the `hobbyscoop` branch.
+
+### test_reselect_open_disable_enable
+Test description: the voter should reselect if an open remote is enabled after disable
+This works correctly with the 2018 patches.
+
+Test sequence:
+* open squelch for remote1
+* mute remote1
+* expect TX to be off
+* enable remote1
+* expect TX to be on and remote1 to be active
+
+This fails in the last step. This happens because the squelch state is overwritten by NetRx.cpp function `NetRx::setMuteState`
+when the receiver is muted. This is needed to deselect the receiver when it happens to be active, so a re-election is done
+for the best RX.
+
+### test_reselect_open_disable_enable_interrupt
+Test description: the voter should reselect a receiver that is disabled and then enabled, if another receiver was selected during disable
+This works correctly with the 2018 patches.
+
+Test sequence:
+* open squelch for remote1 and remote2
+* expect TX to be on and remote1 to be selected (has higher siglev)
+* mute remote1
+* expect remote2 to be selected
+* enable remote1
+* expect remote1 to be re-selected because of higher siglev
+
+This fails in the last step. This happens because the squelch state is overwritten by NetRx.cpp function `NetRx::setMuteState`
+when the receiver is muted. This is needed to deselect the receiver when it happens to be active, so a re-election is done
+for the best RX.
