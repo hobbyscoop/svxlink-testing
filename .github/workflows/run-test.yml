@@ -40,7 +40,9 @@ jobs:
 
     - name: Run tests
       run: |
-        BRANCH=${{ matrix.branch }} pytest --html=report-${{ matrix.branch }}.html --self-contained-html
+        ret=0
+        BRANCH=${{ matrix.branch }} pytest --html=report-${{ matrix.branch }}.html --self-contained-html || ret=1
         git add report-${{ matrix.branch }}.html
         git commit -am 'update report-${{ matrix.branch }}.html'
         git push
+        return $ret
