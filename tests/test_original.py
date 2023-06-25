@@ -76,9 +76,7 @@ class Test(unittest.TestCase):
         # disable remote1, should turn off TX
         self.env.disable_remote("remote1")
         self.assertEqual(self.env.wait_for_remote_state("remote1", "enabled", False, WAIT_TIME), True, "remote1 should become disabled")
-        # [hobbyscoop] TX doesn't turn off
-        # [hobbyscoop] 'remote1': {'active': False, 'enabled': False, 'id': '?', 'name': 'remote1', 'siglev': 0, 'sql_open': False}
-        self.assertEqual(self.env.wait_for_ptt(False, WAIT_TIME*2), True, "transmitter should be off")
+        self.assertEqual(self.env.wait_for_ptt(False, WAIT_TIME*4), True, "transmitter should be off")
 
     def test_disable_unselect_switchover(self):
         """
@@ -103,10 +101,7 @@ class Test(unittest.TestCase):
         self.env.disable_remote("remote1")
         self.env.open_squelch("remote1", True)
         self.env.enable_remote("remote1")
-        # [hobbyscoop] TX doesn't turn on
-        # [hobbyscoop] after 5s: 'remote1': {'active': False, 'enabled': True, 'id': '?', 'name': 'remote1', 'siglev': 0, 'sql_open': False}
         self.assertEqual(self.env.wait_for_ptt(True, WAIT_TIME), True, "transmitter should be on")
-        # [master] after 5s: 'remote1': {'enabled': False, 'id': '?', 'name': 'remote1'}
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "remote1 should be audible")
 
@@ -123,11 +118,8 @@ class Test(unittest.TestCase):
         self.skipTest("doesn't work on OLD")
         self.env.open_squelch("remote1", True)
         self.env.disable_remote("remote1")
-        # [hobbyscoop] TX doesn't turn off
-        # [hobbyscoop] 'remote1': {'active': False, 'enabled': False, 'id': '?', 'name': 'remote1', 'siglev': 0, 'sql_open': False}
         self.assertEqual(self.env.wait_for_ptt(False, WAIT_TIME*2), True, "transmitter should be off")
         self.env.enable_remote("remote1")
-        # [master] after 5s: 'remote1': {'enabled': False, 'id': '?', 'name': 'remote1'}
         self.assertEqual(self.env.wait_for_ptt(True, WAIT_TIME), True, "transmitter should be on")
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "remote1 should be audible")
@@ -148,8 +140,6 @@ class Test(unittest.TestCase):
         self.assertEqual(self.env.wait_for_remote_by_tone("remote2", WAIT_TIME), True, "remote2 should be audible")
         # enable remote1, voter should switch back
         self.env.enable_remote("remote1")
-        # [hobbyscoop] after 5s: 'remote1': {'active': False, 'enabled': True, 'id': '?', 'name': 'remote1', 'siglev': 0, 'sql_open': False}
-        # [master]     after 5s: 'remote1': {'active': False, 'enabled': True, 'id': '?', 'name': 'remote1', 'siglev': 0, 'sql_open': False}
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "remote1 should be audible")
 

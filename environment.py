@@ -129,19 +129,18 @@ class Environment:
         self.containers[name].exec_run("/bin/bash -c \"echo {state} > /tmp/sql\"".format(state=state))
 
     def enable_remote(self, name):
-        # FIXME: support old commands
         self.log.info("enabling {}".format(name))
-        self.containers["svxlink"].exec_run("/bin/bash -c \"echo {name}:1 > /dev/shm/voter\"".format(name=name))
-        self.containers["svxlink"].exec_run("/bin/bash -c \"echo ENABLE {name} > /dev/shm/voter\"".format(name=name))
-
-    def mute_remote(self, name):
-        self.log.info("muting {}".format(name))
-        self.containers["svxlink"].exec_run("/bin/bash -c \"echo MUTE {name} > /dev/shm/voter\"".format(name=name))
+        if os.environ.get("BRANCH") == "old":
+            self.containers["svxlink"].exec_run("/bin/bash -c \"echo {name}:1 > /dev/shm/voter\"".format(name=name))
+        else:
+            self.containers["svxlink"].exec_run("/bin/bash -c \"echo ENABLE {name} > /dev/shm/voter\"".format(name=name))
 
     def disable_remote(self, name):
         self.log.info("disabling {}".format(name))
-        self.containers["svxlink"].exec_run("/bin/bash -c \"echo {name}:0 > /dev/shm/voter\"".format(name=name))
-        self.containers["svxlink"].exec_run("/bin/bash -c \"echo DISABLE {name} > /dev/shm/voter\"".format(name=name))
+        if os.environ.get("BRANCH") == "old":
+            self.containers["svxlink"].exec_run("/bin/bash -c \"echo {name}:0 > /dev/shm/voter\"".format(name=name))
+        else:
+            self.containers["svxlink"].exec_run("/bin/bash -c \"echo MUTE {name} > /dev/shm/voter\"".format(name=name))
 
     def reset(self):
         self.log.info("resetting test env")
