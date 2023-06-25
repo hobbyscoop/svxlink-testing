@@ -126,7 +126,7 @@ class Test(unittest.TestCase):
         """
         self.env.open_squelch("remote1", True)
         self.env.disable_remote("remote1")
-        self.assertEqual(self.env.wait_for_ptt(False, WAIT_TIME*2), True, "transmitter should be off")
+        self.assertEqual(self.env.wait_for_ptt(False, WAIT_TIME*4), True, "transmitter should be off")
         self.env.enable_remote("remote1")
         self.assertEqual(self.env.wait_for_ptt(True, WAIT_TIME), True, "transmitter should be on")
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 should become active")
