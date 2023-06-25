@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         branch:
-#          - master
+          - master
           - hobbyscoop
           - old
     timeout-minutes: 60
@@ -39,5 +39,8 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run tests
-      run: BRANCH=${{ matrix.branch }} pytest || (cat log && exit 1) # on error, show log and break
-
+      run: |
+        BRANCH=${{ matrix.branch }} pytest --html=report-${{ matrix.branch }}.html --self-contained-html
+        git add report-${{ matrix.branch }}.html
+        git commit -am 'update report-${{ matrix.branch }}.html'
+        git push
