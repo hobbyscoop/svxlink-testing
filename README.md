@@ -1,21 +1,26 @@
 This repo helps us testing svxlink to make sure our patches still work.
+View these pages  [here](https://hobbyscoop.github.io/svxlink-testing/).
+
+## Versions under test
+
+| branch name | points to                                                                                                                                                                       | description                                                                                                   | test results                             |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| master      | [source](https://github.com/sm0svx/svxlink)                                                                                                                                     | svxlink upstream master branch                                                                                | [report-master.html](report-master.html) |
+| old         | [source](https://github.com/hsmade/hobbyscoop)                                                                                                                                  | patched, 2018 version of svxlink                                                                              | [report-old.html](report-old.html)       |
+| hobbyscoop  | [source](https://github.com/hobbyscoop/svxlink/tree/hobbyscoop) / [diff with upstream master](https://github.com/sm0svx/svxlink/compare/master...hobbyscoop:svxlink:hobbyscoop) | patched, 2023 version of svxlink | [report-hobbyscoop.html](report-hobbyscoop.html)       |
 
 ## Todo
-* write tests
-  * see how we can take in echolink testing, as we have a patch for voter preference for that
+* see how we can take in echolink testing, as we have a patch for voter preference for that
 
 ## Run
-* run the Github Action named `test`, select the branch to test:
-  * `master`: [svxlink upstream](https://github.com/sm0svx/svxlink)
-  * `hobbyscoop`: with hobbyscoop patches ([changes from master](https://github.com/sm0svx/svxlink/compare/master...hobbyscoop:svxlink:hobbyscoop))
-  * `old`: old repo with patches
+Run the Github Action named `test`.
 
 Or manually:
 ```bash
 ./scripts/build-images.sh <branch>
 BRANCH=<branch> pytest
 ```
-Where `<branch>` is either master (upstream) or `hobbyscoop`.
+Where `<branch>` is either master (upstream), `hobbyscoop`, or `old`.
 If the branch wasn't updated, there is no need to rerun `build-images.sh`.
 
 ## Remotes
@@ -52,12 +57,8 @@ This however overrides the squelch state of the muted receiver, which introduces
 if the now inactive receiver is enabled again, and the actual squelch on the receiver is still open, 
 it is not selected by the voter, as the voter still thinks the squelch is closed after overriding it.
 
-## The tests
+# The tests
 The code for the tests can be found in [tests/test_original.py](tests/test_original.py).
-The results are here:
- * [old (2018 patches)](report-old.html)
- * [upstream master](report-master.html)
- * [current hobbyscoop patches](report-hobbyscoop.html)
 
 ## Running tests using MUTE command to silence remote
 This is close to the 2018 patches, as it invokes `MUTE_CONTENT` (see [here]([here](https://github.com/hsmade/svxlink/blame/master/src/svxlink/trx/Voter.cpp#L192)).
