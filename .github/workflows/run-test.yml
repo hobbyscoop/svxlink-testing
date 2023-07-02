@@ -20,7 +20,9 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.ref_name }}
 
     - name: Build docker image
       run: scripts/build-images.sh ${{ matrix.branch }}
@@ -42,10 +44,10 @@ jobs:
       run: |
         ret=0
         BRANCH=${{ matrix.branch }} pytest --html=report-${{ matrix.branch }}.html --self-contained-html || ret=1
-        git config --global user.name "Continuous Integration"
+        set -x
+        git config --global user.name "GitHub Actions"
         git config --global user.email "hobbyscoop@users.noreply.github.com"
-        git pull
         git add report-${{ matrix.branch }}.html
-        git commit -am 'update report-${{ matrix.branch }}.html'
-        git push origin HEAD:master
+        git commit -m 'update report-${{ matrix.branch }}.html'
+        git push
         return $ret
