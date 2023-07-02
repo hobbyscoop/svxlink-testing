@@ -2,6 +2,15 @@ name: Test
 
 on:
   push:
+    paths:
+      - '*.py'
+      - 'configs/**'
+      - 'docker*'
+      - 'Dockerfile'
+      - 'pytest.ini'
+      - 'requirements.txt'
+      - 'scripts/**'
+      - 'tests/**'
     branches:
       - main
   workflow_dispatch:
