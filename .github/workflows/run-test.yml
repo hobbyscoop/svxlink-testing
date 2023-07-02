@@ -50,4 +50,4 @@ jobs:
         git add report-${{ matrix.branch }}.html
         git commit -m 'update report-${{ matrix.branch }}.html'
         git push
-        return $ret
+        exit $ret
