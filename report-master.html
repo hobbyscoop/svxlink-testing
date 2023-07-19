@@ -439,9 +439,9 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report-master.html</h1>
-    <p>Report generated on 18-Jul-2023 at 21:15:09 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 19-Jul-2023 at 14:00:03 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Summary</h2>
-    <p>9 tests ran in 77.38 seconds. </p>
+    <p>9 tests ran in 77.24 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">8 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -457,7 +457,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Failed</td>
           <td class="col-name">tests/test_original.py::Test::test_reselect_open_disable_enable</td>
-          <td class="col-duration">25.86</td>
+          <td class="col-duration">25.76</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -476,99 +476,96 @@ Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
-Removing svxlink ... done
 Removing remote1 ... done
+Removing svxlink ... done
 Removing remote2 ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:14:11.695 INFO starting instances
-21:14:14.474 INFO Started log tailing
-21:14:14.684 INFO waiting for remotes to connect
-21:14:15.251 INFO Attaching to svxlink, remote2, remote1
-21:14:15.251 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:15.252 INFO remote1    |
-21:14:15.252 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:15.252 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:15.252 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:15.252 INFO remote1    |
-21:14:15.254 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:15.254 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:15.256 INFO remote1    | RX: LocalSim
-21:14:15.256 INFO remote1    | TX: NONE
-21:14:15.256 INFO remote1    |
-21:14:15.256 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:39064
-21:14:15.256 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:15.256 INFO remote2    |
-21:14:15.256 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:15.258 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:15.258 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:15.258 INFO remote2    |
-21:14:15.258 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:15.258 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:15.259 INFO remote2    | RX: LocalSim
-21:14:15.259 INFO remote2    | TX: NONE
-21:14:15.259 INFO remote2    |
-21:14:15.259 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:43316
-21:14:15.263 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:15.263 INFO svxlink    |
-21:14:15.263 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:15.264 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:15.264 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:15.264 INFO svxlink    |
-21:14:15.264 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:15.264 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:15.264 INFO svxlink    |
-21:14:15.264 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:15.264 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:15.264 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:15.264 INFO svxlink    | 	Adding receiver: remote1
-21:14:15.264 INFO svxlink    | 	Adding receiver: remote2
-21:14:15.264 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:15.265 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:15.265 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:15.265 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:14:16.325 INFO startup done
-21:14:16.325 INFO setting squelch for remote1 to O
-21:14:16.381 INFO disabling remote1
-21:14:16.456 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:16.456 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:16.456 INFO remote1    | LocalSim: The squelch is OPEN
-21:14:16.456 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:14:16.456 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:14:16.457 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:14:16.457 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:14:16.457 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:14:16.457 INFO svxlink    | Tx1: Turning the transmitter ON
-21:14:16.500 INFO svxlink    | Voter: Muting receiver remote1
-21:14:16.500 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
-21:14:36.453 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 14, 16, 499000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: False, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
-21:14:36.453 INFO True
-21:14:36.453 INFO stopping instances
-21:14:36.974 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:36.974 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:14:36.974 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
-21:14:36.974 INFO remote1    | NetUplinkTrx: Client disconnected: 172.17.0.1:39064
-21:14:36.975 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:36.975 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:36.975 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:36.976 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:36.976 INFO remote2    | LocalSim: SetMuteState(ALL)
-21:14:36.976 INFO remote2    | LocalSim: SetMuteState(ALL)
-21:14:36.976 INFO remote2    | NetUplinkTrx: Client disconnected: 172.17.0.1:43316
-21:14:36.985 INFO svxlink    |
-21:14:36.985 INFO svxlink    | SIGTERM received. Shutting down application...
-21:14:36.985 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:14:36.985 INFO svxlink    | Voter[remote1]: The squelch is CLOSED (siglev=0) [MUTED]
-21:14:37.002 INFO remote1    |
-21:14:37.002 INFO remote1    | SIGTERM received. Shutting down application...
-21:14:37.004 INFO remote2    |
-21:14:37.004 INFO remote2    | SIGTERM received. Shutting down application...
-21:14:37.329 INFO remote2 exited with code 0
-21:14:37.333 INFO remote1 exited with code 0
-21:14:37.440 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:06.969 INFO starting instances
+13:59:09.651 INFO Started log tailing
+13:59:09.879 INFO waiting for remotes to connect
+13:59:10.466 INFO Attaching to svxlink, remote2, remote1
+13:59:10.466 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:10.467 INFO remote1    |
+13:59:10.467 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:10.467 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:10.467 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:59:10.467 INFO remote1    |
+13:59:10.467 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:10.467 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:10.467 INFO remote1    | RX: LocalSim
+13:59:10.467 INFO remote1    | TX: NONE
+13:59:10.468 INFO remote1    |
+13:59:10.468 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:46888
+13:59:10.468 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:10.468 INFO remote2    |
+13:59:10.468 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:10.468 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:10.468 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:59:10.468 INFO remote2    |
+13:59:10.468 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:10.468 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:10.468 INFO remote2    | RX: LocalSim
+13:59:10.468 INFO remote2    | TX: NONE
+13:59:10.468 INFO remote2    |
+13:59:10.469 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:47224
+13:59:10.470 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:10.471 INFO svxlink    |
+13:59:10.471 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:10.471 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:10.471 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:59:10.471 INFO svxlink    |
+13:59:10.471 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:59:10.471 INFO svxlink    | --- Using sample rate 16000Hz
+13:59:10.471 INFO svxlink    |
+13:59:10.471 INFO svxlink    | Starting logic: RepeaterLogic
+13:59:10.471 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:59:10.472 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:59:10.472 INFO svxlink    | 	Adding receiver: remote1
+13:59:10.472 INFO svxlink    | 	Adding receiver: remote2
+13:59:10.472 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:59:10.472 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:59:10.472 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:59:10.472 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:59:11.538 INFO startup done
+13:59:11.539 INFO setting squelch for remote1 to O
+13:59:11.593 INFO disabling remote1
+13:59:11.616 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:11.617 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:11.617 INFO remote1    | LocalSim: The squelch is OPEN
+13:59:11.617 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:59:11.617 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:59:11.617 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:59:11.617 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:59:11.617 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:59:11.617 INFO svxlink    | Tx1: Turning the transmitter ON
+13:59:11.673 INFO svxlink    | Voter: Muting receiver remote1
+13:59:11.673 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
+13:59:31.660 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 59, 11, 672000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: False, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
+13:59:31.660 INFO True
+13:59:31.660 INFO stopping instances
+13:59:32.181 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:32.182 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:59:32.183 INFO remote1    |
+13:59:32.183 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:32.183 INFO svxlink    | remote1: Disconnected from remote receiver 172.17.0.1:5211: Connection closed by remote peer
+13:59:32.183 INFO svxlink    | Voter[remote1]: The squelch is CLOSED (siglev=1000) [MUTED]
+13:59:32.186 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:32.187 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:32.187 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:32.187 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:32.187 INFO remote2    |
+13:59:32.187 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:32.203 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:59:32.204 INFO svxlink    |
+13:59:32.204 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:32.204 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:32.529 INFO remote2 exited with code 0
+13:59:32.531 INFO remote1 exited with code 0
+13:59:32.620 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_disable_deselect_off</td>
-          <td class="col-duration">7.44</td>
+          <td class="col-duration">7.83</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -581,107 +578,108 @@ Creating svxlink ... done
 Stopping svxlink ... 
 Stopping remote2 ... 
 Stopping remote1 ... 
-Stopping remote1 ... done
 Stopping remote2 ... done
+Stopping remote1 ... done
 Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
+Removing remote2 ... done
 Removing svxlink ... done
 Removing remote1 ... done
-Removing remote2 ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:13:51.936 INFO starting instances
-21:13:54.762 INFO Started log tailing
-21:13:54.948 INFO waiting for remotes to connect
-21:13:55.608 INFO Attaching to svxlink, remote2, remote1
-21:13:55.609 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:13:55.609 INFO remote1    |
-21:13:55.610 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:13:55.611 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:13:55.611 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:13:55.612 INFO remote1    |
-21:13:55.612 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:13:55.612 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:13:55.613 INFO remote1    | RX: LocalSim
-21:13:55.613 INFO remote1    | TX: NONE
-21:13:55.613 INFO remote1    |
-21:13:55.614 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:51692
-21:13:55.614 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:13:55.614 INFO remote2    |
-21:13:55.615 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:13:55.615 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:13:55.615 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:13:55.616 INFO remote2    |
-21:13:55.616 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:13:55.617 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:13:55.617 INFO remote2    | RX: LocalSim
-21:13:55.617 INFO remote2    | TX: NONE
-21:13:55.618 INFO remote2    |
-21:13:55.618 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:54614
-21:13:55.618 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:13:55.619 INFO svxlink    |
-21:13:55.619 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:13:55.619 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:13:55.620 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:13:55.620 INFO svxlink    |
-21:13:55.621 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:13:55.621 INFO svxlink    | --- Using sample rate 16000Hz
-21:13:55.621 INFO svxlink    |
-21:13:55.622 INFO svxlink    | Starting logic: RepeaterLogic
-21:13:55.622 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:13:55.622 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:13:55.623 INFO svxlink    | 	Adding receiver: remote1
-21:13:55.623 INFO svxlink    | 	Adding receiver: remote2
-21:13:55.623 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:13:55.624 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:13:55.624 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:13:55.624 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:13:56.525 INFO startup done
-21:13:56.526 INFO setting squelch for remote1 to O
-21:13:56.589 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:13:56.589 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:13:56.589 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:13:56.589 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:13:56.589 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:13:56.589 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:13:56.589 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:13:56.589 INFO remote1    | LocalSim: The squelch is OPEN
-21:13:56.593 INFO svxlink    | Tx1: Turning the transmitter ON
-21:13:56.778 INFO disabling remote1
-21:13:56.890 INFO svxlink    | Voter: Muting receiver remote1
-21:13:56.890 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
-21:13:57.938 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_n&quot; in context &quot;Default&quot;
-21:13:57.938 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_o&quot; in context &quot;Default&quot;
-21:13:57.938 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_n&quot; in context &quot;Default&quot;
-21:13:57.938 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_e&quot; in context &quot;Default&quot;
-21:13:57.939 INFO svxlink    | *** WARNING: Could not find audio clip &quot;repeater&quot; in context &quot;Core&quot;
-21:13:58.225 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 13, 56, 889000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: False, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
-21:13:58.226 INFO False
-21:13:58.226 INFO stopping instances
-21:13:58.226 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:13:58.745 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:13:58.745 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:13:58.745 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:13:58.745 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:13:58.745 INFO remote2    |
-21:13:58.750 INFO remote2    | SIGTERM received. Shutting down application...
-21:13:58.752 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:13:58.752 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:13:58.752 INFO remote1    |
-21:13:58.752 INFO remote1    | SIGTERM received. Shutting down application...
-21:13:58.752 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
-21:13:58.752 INFO svxlink    | remote1: Disconnected from remote receiver 172.17.0.1:5211: Connection closed by remote peer
-21:13:58.752 INFO svxlink    | Voter[remote1]: The squelch is CLOSED (siglev=1000) [MUTED]
-21:13:58.765 INFO svxlink    |
-21:13:58.765 INFO svxlink    | SIGTERM received. Shutting down application...
-21:13:59.062 INFO remote1 exited with code 0
-21:13:59.101 INFO remote2 exited with code 0
-21:13:59.264 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:58:46.792 INFO starting instances
+13:58:49.972 INFO Started log tailing
+13:58:50.207 INFO waiting for remotes to connect
+13:58:50.718 INFO Attaching to svxlink, remote2, remote1
+13:58:50.719 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:58:50.719 INFO remote1    |
+13:58:50.719 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:58:50.719 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:58:50.719 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:58:50.719 INFO remote1    |
+13:58:50.719 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:58:50.719 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:58:50.720 INFO remote1    | RX: LocalSim
+13:58:50.720 INFO remote1    | TX: NONE
+13:58:50.720 INFO remote1    |
+13:58:50.720 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:41600
+13:58:50.720 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:58:50.720 INFO remote2    |
+13:58:50.720 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:58:50.720 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:58:50.720 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:58:50.720 INFO remote2    |
+13:58:50.720 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:58:50.720 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:58:50.720 INFO remote2    | RX: LocalSim
+13:58:50.721 INFO remote2    | TX: NONE
+13:58:50.721 INFO remote2    |
+13:58:50.721 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:38946
+13:58:50.721 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:58:50.721 INFO svxlink    |
+13:58:50.721 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:58:50.721 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:58:50.721 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:58:50.721 INFO svxlink    |
+13:58:50.721 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:58:50.721 INFO svxlink    | --- Using sample rate 16000Hz
+13:58:50.721 INFO svxlink    |
+13:58:50.721 INFO svxlink    | Starting logic: RepeaterLogic
+13:58:50.721 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:58:50.721 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:58:50.722 INFO svxlink    | 	Adding receiver: remote1
+13:58:50.722 INFO svxlink    | 	Adding receiver: remote2
+13:58:50.722 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:58:50.722 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:58:50.722 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:58:50.722 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:58:51.830 INFO startup done
+13:58:51.831 INFO setting squelch for remote1 to O
+13:58:51.919 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:58:51.919 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:58:51.919 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:58:51.919 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:58:51.919 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:58:51.919 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:58:51.920 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:58:51.920 INFO remote1    | LocalSim: The squelch is OPEN
+13:58:51.920 INFO svxlink    | Tx1: Turning the transmitter ON
+13:58:52.111 INFO disabling remote1
+13:58:52.209 INFO svxlink    | Voter: Muting receiver remote1
+13:58:52.209 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
+13:58:53.239 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_n&quot; in context &quot;Default&quot;
+13:58:53.239 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_o&quot; in context &quot;Default&quot;
+13:58:53.239 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_n&quot; in context &quot;Default&quot;
+13:58:53.239 INFO svxlink    | *** WARNING: Could not find audio clip &quot;phonetic_e&quot; in context &quot;Default&quot;
+13:58:53.239 INFO svxlink    | *** WARNING: Could not find audio clip &quot;repeater&quot; in context &quot;Core&quot;
+13:58:53.526 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 58, 52, 208000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: False, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
+13:58:53.527 INFO False
+13:58:53.527 INFO stopping instances
+13:58:53.527 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:58:54.053 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:58:54.054 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:58:54.054 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:58:54.054 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:58:54.054 INFO remote2    |
+13:58:54.054 INFO remote2    | SIGTERM received. Shutting down application...
+13:58:54.062 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:58:54.062 INFO svxlink    |
+13:58:54.062 INFO svxlink    | SIGTERM received. Shutting down application...
+13:58:54.063 INFO svxlink    | Voter[remote1]: The squelch is CLOSED (siglev=0) [MUTED]
+13:58:54.064 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:58:54.064 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:58:54.064 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
+13:58:54.064 INFO remote1    | NetUplinkTrx: Client disconnected: 172.17.0.1:41600
+13:58:54.071 INFO remote1    |
+13:58:54.072 INFO remote1    | SIGTERM received. Shutting down application...
+13:58:54.310 INFO remote2 exited with code 0
+13:58:54.363 INFO remote1 exited with code 0
+13:58:54.511 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_disable_deselect_switchover</td>
-          <td class="col-duration">6.38</td>
+          <td class="col-duration">6.34</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -701,99 +699,98 @@ Removing svxlink ...
 Removing remote2 ... 
 Removing remote1 ... 
 Removing svxlink ... done
-Removing remote1 ... done
 Removing remote2 ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:13:59.386 INFO starting instances
-21:14:02.108 INFO Started log tailing
-21:14:02.295 INFO waiting for remotes to connect
-21:14:02.974 INFO Attaching to svxlink, remote2, remote1
-21:14:02.975 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:02.975 INFO remote1    |
-21:14:02.975 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:02.976 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:02.976 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:02.976 INFO remote1    |
-21:14:02.976 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:02.977 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:02.977 INFO remote1    | RX: LocalSim
-21:14:02.977 INFO remote1    | TX: NONE
-21:14:02.977 INFO remote1    |
-21:14:02.977 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:50554
-21:14:02.978 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:02.978 INFO remote2    |
-21:14:02.978 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:02.978 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:02.979 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:02.979 INFO remote2    |
-21:14:02.979 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:02.979 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:02.979 INFO remote2    | RX: LocalSim
-21:14:02.980 INFO remote2    | TX: NONE
-21:14:02.980 INFO remote2    |
-21:14:02.980 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:48384
-21:14:02.980 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:02.981 INFO svxlink    |
-21:14:02.981 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:02.981 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:02.981 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:02.981 INFO svxlink    |
-21:14:02.982 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:02.982 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:02.982 INFO svxlink    |
-21:14:02.982 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:02.983 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:02.983 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:02.983 INFO svxlink    | 	Adding receiver: remote1
-21:14:02.983 INFO svxlink    | 	Adding receiver: remote2
-21:14:02.983 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:02.984 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:02.984 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:02.984 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:14:03.911 INFO startup done
-21:14:03.911 INFO setting squelch for remote1 to O
-21:14:03.970 INFO setting squelch for remote2 to O
-21:14:04.013 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:04.013 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:04.013 INFO remote1    | LocalSim: The squelch is OPEN
-21:14:04.014 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:14:04.014 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:14:04.014 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:14:04.014 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:14:04.014 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:14:04.014 INFO svxlink    | Tx1: Turning the transmitter ON
-21:14:04.029 INFO disabling remote1
-21:14:04.097 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:04.097 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:04.097 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:04.097 INFO remote2    | LocalSim: The squelch is OPEN
-21:14:04.125 INFO svxlink    | Voter: Muting receiver remote1
-21:14:04.125 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
-21:14:04.325 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
-21:14:04.620 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 14, 4, 524000), &#x27;remote1&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: False, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
-21:14:04.620 INFO True
-21:14:04.620 INFO stopping instances
-21:14:05.157 INFO svxlink    |
-21:14:05.157 INFO svxlink    | SIGTERM received. Shutting down application...
-21:14:05.158 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:05.158 INFO remote2    | LocalSim: The squelch is CLOSED (MUTED)
-21:14:05.158 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:05.158 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:14:05.158 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
-21:14:05.159 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:14:05.159 INFO svxlink    | Voter[remote1]: The squelch is CLOSED (siglev=0) [MUTED]
-21:14:05.173 INFO remote1    |
-21:14:05.173 INFO remote1    | SIGTERM received. Shutting down application...
-21:14:05.180 INFO remote2    | LocalSim: SetMuteState(ALL)
-21:14:05.180 INFO remote2    |
-21:14:05.180 INFO remote2    | SIGTERM received. Shutting down application...
-21:14:05.525 INFO remote1 exited with code 0
-21:14:05.528 INFO remote2 exited with code 0
-21:14:05.656 INFO svxlink exited with code 139<br/></div></td></tr></tbody>
+Removing remote1 ... done
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:58:54.625 INFO starting instances
+13:58:57.252 INFO Started log tailing
+13:58:57.467 INFO waiting for remotes to connect
+13:58:58.172 INFO Attaching to svxlink, remote2, remote1
+13:58:58.176 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:58:58.176 INFO remote1    |
+13:58:58.177 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:58:58.177 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:58:58.177 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:58:58.179 INFO remote1    |
+13:58:58.180 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:58:58.180 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:58:58.180 INFO remote1    | RX: LocalSim
+13:58:58.180 INFO remote1    | TX: NONE
+13:58:58.180 INFO remote1    |
+13:58:58.180 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:34188
+13:58:58.187 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:58:58.188 INFO remote2    |
+13:58:58.188 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:58:58.188 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:58:58.188 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:58:58.188 INFO remote2    |
+13:58:58.188 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:58:58.188 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:58:58.188 INFO remote2    | RX: LocalSim
+13:58:58.188 INFO remote2    | TX: NONE
+13:58:58.188 INFO remote2    |
+13:58:58.188 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:44926
+13:58:58.188 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:58:58.189 INFO svxlink    |
+13:58:58.189 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:58:58.189 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:58:58.189 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:58:58.189 INFO svxlink    |
+13:58:58.189 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:58:58.189 INFO svxlink    | --- Using sample rate 16000Hz
+13:58:58.189 INFO svxlink    |
+13:58:58.189 INFO svxlink    | Starting logic: RepeaterLogic
+13:58:58.189 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:58:58.189 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:58:58.189 INFO svxlink    | 	Adding receiver: remote1
+13:58:58.189 INFO svxlink    | 	Adding receiver: remote2
+13:58:58.189 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:58:58.190 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:58:58.190 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:58:58.190 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:58:59.037 INFO startup done
+13:58:59.037 INFO setting squelch for remote1 to O
+13:58:59.091 INFO setting squelch for remote2 to O
+13:58:59.140 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:58:59.140 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:58:59.140 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:58:59.140 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:58:59.140 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:58:59.141 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:58:59.142 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:58:59.142 INFO remote1    | LocalSim: The squelch is OPEN
+13:58:59.142 INFO svxlink    | Tx1: Turning the transmitter ON
+13:58:59.148 INFO disabling remote1
+13:58:59.186 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:58:59.186 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:58:59.186 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:58:59.186 INFO remote2    | LocalSim: The squelch is OPEN
+13:58:59.285 INFO svxlink    | Voter: Muting receiver remote1
+13:58:59.285 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
+13:58:59.485 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
+13:58:59.715 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 58, 59, 684000), &#x27;remote1&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: False, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
+13:58:59.715 INFO True
+13:58:59.715 INFO stopping instances
+13:59:00.252 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:00.252 INFO remote2    |
+13:59:00.252 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:00.262 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:59:00.263 INFO svxlink    |
+13:59:00.263 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:00.263 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:00.263 INFO svxlink    | Voter[remote1]: The squelch is CLOSED (siglev=0) [MUTED]
+13:59:00.263 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:00.263 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:59:00.263 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
+13:59:00.274 INFO remote1    |
+13:59:00.275 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:00.620 INFO remote1 exited with code 0
+13:59:00.639 INFO remote2 exited with code 0
+13:59:00.859 INFO svxlink exited with code 139<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_dont_switchover_with_squelch</td>
-          <td class="col-duration">5.92</td>
+          <td class="col-duration">5.99</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -806,97 +803,100 @@ Creating svxlink ... done
 Stopping svxlink ... 
 Stopping remote2 ... 
 Stopping remote1 ... 
-Stopping remote1 ... done
 Stopping remote2 ... done
+Stopping remote1 ... done
 Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
 Removing remote2 ... done
-Removing remote1 ... done
 Removing svxlink ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:14:05.767 INFO starting instances
-21:14:08.493 INFO Started log tailing
-21:14:08.736 INFO waiting for remotes to connect
-21:14:09.368 INFO Attaching to svxlink, remote2, remote1
-21:14:09.369 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:09.369 INFO remote1    |
-21:14:09.369 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:09.370 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:09.370 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:09.370 INFO remote1    |
-21:14:09.370 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:09.370 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:09.370 INFO remote1    | RX: LocalSim
-21:14:09.370 INFO remote1    | TX: NONE
-21:14:09.370 INFO remote1    |
-21:14:09.370 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:39060
-21:14:09.370 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:09.370 INFO remote2    |
-21:14:09.371 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:09.371 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:09.371 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:09.371 INFO remote2    |
-21:14:09.371 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:09.371 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:09.371 INFO remote2    | RX: LocalSim
-21:14:09.371 INFO remote2    | TX: NONE
-21:14:09.371 INFO remote2    |
-21:14:09.371 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:43310
-21:14:09.371 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:09.371 INFO svxlink    |
-21:14:09.372 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:09.372 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:09.372 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:09.372 INFO svxlink    |
-21:14:09.372 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:09.372 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:09.372 INFO svxlink    |
-21:14:09.372 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:09.372 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:09.372 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:09.373 INFO svxlink    | 	Adding receiver: remote1
-21:14:09.373 INFO svxlink    | 	Adding receiver: remote2
-21:14:09.373 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:09.373 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:09.373 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:09.373 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:14:10.270 INFO startup done
-21:14:10.270 INFO setting squelch for remote1 to O
-21:14:10.416 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:14:10.416 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:14:10.416 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:14:10.417 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:14:10.417 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:14:10.418 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:10.418 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:10.418 INFO remote1    | LocalSim: The squelch is OPEN
-21:14:10.418 INFO svxlink    | Tx1: Turning the transmitter ON
-21:14:10.607 INFO setting squelch for remote2 to O
-21:14:10.666 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 14, 10, 614000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
-21:14:10.667 INFO True
-21:14:10.667 INFO stopping instances
-21:14:10.717 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:10.717 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:10.717 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:10.717 INFO remote2    | LocalSim: The squelch is OPEN
-21:14:11.183 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:11.183 INFO remote1    |
-21:14:11.183 INFO remote1    | SIGTERM received. Shutting down application...
-21:14:11.202 INFO remote2    |
-21:14:11.203 INFO remote2    | SIGTERM received. Shutting down application...
-21:14:11.204 INFO svxlink    | remote1: Disconnected from remote receiver 172.17.0.1:5211: Connection closed by remote peer
-21:14:11.204 INFO svxlink    |
-21:14:11.204 INFO svxlink    | SIGTERM received. Shutting down application...
-21:14:11.204 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:14:11.488 INFO remote1 exited with code 0
-21:14:11.493 INFO remote2 exited with code 0
-21:14:11.582 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
+Removing remote1 ... done
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:00.972 INFO starting instances
+13:59:03.639 INFO Started log tailing
+13:59:03.883 INFO waiting for remotes to connect
+13:59:04.624 INFO Attaching to svxlink, remote2, remote1
+13:59:04.624 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:04.624 INFO remote1    |
+13:59:04.624 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:04.624 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:04.624 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:59:04.624 INFO remote1    |
+13:59:04.625 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:04.625 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:04.625 INFO remote1    | RX: LocalSim
+13:59:04.625 INFO remote1    | TX: NONE
+13:59:04.625 INFO remote1    |
+13:59:04.625 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:34190
+13:59:04.625 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:04.625 INFO remote2    |
+13:59:04.625 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:04.625 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:04.625 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:59:04.625 INFO remote2    |
+13:59:04.625 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:04.625 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:04.625 INFO remote2    | RX: LocalSim
+13:59:04.625 INFO remote2    | TX: NONE
+13:59:04.625 INFO remote2    |
+13:59:04.626 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:44932
+13:59:04.629 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:04.630 INFO svxlink    |
+13:59:04.630 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:04.630 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:04.630 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:59:04.630 INFO svxlink    |
+13:59:04.630 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:59:04.630 INFO svxlink    | --- Using sample rate 16000Hz
+13:59:04.630 INFO svxlink    |
+13:59:04.630 INFO svxlink    | Starting logic: RepeaterLogic
+13:59:04.630 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:59:04.630 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:59:04.630 INFO svxlink    | 	Adding receiver: remote1
+13:59:04.630 INFO svxlink    | 	Adding receiver: remote2
+13:59:04.630 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:59:04.630 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:59:04.631 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:59:04.631 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:59:04.631 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:59:04.631 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:59:05.514 INFO startup done
+13:59:05.514 INFO setting squelch for remote1 to O
+13:59:05.588 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:05.588 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:05.589 INFO remote1    | LocalSim: The squelch is OPEN
+13:59:05.589 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:59:05.589 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:59:05.589 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:59:05.589 INFO svxlink    | Tx1: Turning the transmitter ON
+13:59:05.781 INFO setting squelch for remote2 to O
+13:59:05.836 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 59, 5, 787000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
+13:59:05.836 INFO True
+13:59:05.836 INFO stopping instances
+13:59:05.847 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:05.847 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:05.847 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:05.847 INFO remote2    | LocalSim: The squelch is OPEN
+13:59:06.363 INFO remote2    |
+13:59:06.363 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:06.381 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:06.381 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
+13:59:06.383 INFO remote1    | LocalSim: SetMuteState(ALL)
+13:59:06.383 INFO remote1    | NetUplinkTrx: Client disconnected: 172.17.0.1:34190
+13:59:06.383 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:59:06.383 INFO svxlink    |
+13:59:06.383 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:06.383 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:06.397 INFO remote1    |
+13:59:06.397 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:06.663 INFO remote2 exited with code 0
+13:59:06.702 INFO remote1 exited with code 0
+13:59:06.841 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_reselect_open_disable_enable_interrupt</td>
-          <td class="col-duration">6.97</td>
+          <td class="col-duration">6.96</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -915,102 +915,101 @@ Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
-Removing remote1 ... done
 Removing remote2 ... done
 Removing svxlink ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:14:37.589 INFO starting instances
-21:14:40.295 INFO Started log tailing
-21:14:40.536 INFO waiting for remotes to connect
-21:14:41.071 INFO Attaching to svxlink, remote2, remote1
-21:14:41.072 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:41.072 INFO remote1    |
-21:14:41.072 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:41.072 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:41.072 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:41.073 INFO remote1    |
-21:14:41.073 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:41.073 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:41.073 INFO remote1    | RX: LocalSim
-21:14:41.073 INFO remote1    | TX: NONE
-21:14:41.073 INFO remote1    |
-21:14:41.073 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:47710
-21:14:41.073 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:41.073 INFO remote2    |
-21:14:41.073 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:41.073 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:41.073 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:41.073 INFO remote2    |
-21:14:41.073 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:41.073 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:41.074 INFO remote2    | RX: LocalSim
-21:14:41.074 INFO remote2    | TX: NONE
-21:14:41.074 INFO remote2    |
-21:14:41.074 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:43560
-21:14:41.074 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:41.074 INFO svxlink    |
-21:14:41.074 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:41.074 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:41.074 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:41.074 INFO svxlink    |
-21:14:41.074 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:41.074 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:41.074 INFO svxlink    |
-21:14:41.074 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:41.074 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:41.074 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:41.074 INFO svxlink    | 	Adding receiver: remote1
-21:14:41.075 INFO svxlink    | 	Adding receiver: remote2
-21:14:41.075 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:41.075 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:41.075 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:41.075 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:14:42.091 INFO startup done
-21:14:42.091 INFO setting squelch for remote1 to O
-21:14:42.150 INFO setting squelch for remote2 to O
-21:14:42.229 INFO disabling remote1
-21:14:42.229 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:14:42.229 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:14:42.229 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:14:42.230 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:42.230 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:42.230 INFO remote1    | LocalSim: The squelch is OPEN
-21:14:42.230 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:14:42.230 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:14:42.231 INFO svxlink    | Tx1: Turning the transmitter ON
-21:14:42.305 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:42.305 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:42.305 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:42.305 INFO remote2    | LocalSim: The squelch is OPEN
-21:14:42.324 INFO svxlink    | Voter: Muting receiver remote1
-21:14:42.324 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
-21:14:42.524 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
-21:14:42.808 INFO enabling remote1
-21:14:42.924 INFO svxlink    | Voter: Enabling receiver remote1
-21:14:43.448 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 14, 43, 374000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
-21:14:43.448 INFO True
-21:14:43.448 INFO stopping instances
-21:14:43.974 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:43.980 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:43.980 INFO remote2    | LocalSim: The squelch is CLOSED (MUTED)
-21:14:43.980 INFO svxlink    | Voter: Switching from &quot;remote2&quot; (30) to &quot;remote1&quot; (1000)
-21:14:43.980 INFO svxlink    |
-21:14:43.980 INFO svxlink    | SIGTERM received. Shutting down application...
-21:14:43.980 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:14:43.980 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:43.980 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:14:43.980 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:14:43.980 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:43.981 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:43.981 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
-21:14:43.982 INFO remote1    | LocalSim: SetMuteState(ALL)
-21:14:43.982 INFO remote1    |
-21:14:43.982 INFO remote1    | SIGTERM received. Shutting down application...
-21:14:44.018 INFO remote2    | LocalSim: SetMuteState(ALL)
-21:14:44.018 INFO remote2    |
-21:14:44.018 INFO remote2    | SIGTERM received. Shutting down application...
-21:14:44.266 INFO remote2 exited with code 0
-21:14:44.285 INFO remote1 exited with code 0
-21:14:44.455 INFO svxlink exited with code 139<br/></div></td></tr></tbody>
+Removing remote1 ... done
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:32.763 INFO starting instances
+13:59:35.427 INFO Started log tailing
+13:59:35.647 INFO waiting for remotes to connect
+13:59:36.276 INFO Attaching to svxlink, remote2, remote1
+13:59:36.276 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:36.276 INFO remote1    |
+13:59:36.276 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:36.276 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:36.276 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:59:36.276 INFO remote1    |
+13:59:36.276 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:36.276 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:36.276 INFO remote1    | RX: LocalSim
+13:59:36.276 INFO remote1    | TX: NONE
+13:59:36.276 INFO remote1    |
+13:59:36.276 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:39808
+13:59:36.277 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:36.277 INFO remote2    |
+13:59:36.277 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:36.277 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:36.277 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:59:36.277 INFO remote2    |
+13:59:36.277 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:36.277 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:36.277 INFO remote2    | RX: LocalSim
+13:59:36.277 INFO remote2    | TX: NONE
+13:59:36.277 INFO remote2    |
+13:59:36.277 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:38840
+13:59:36.277 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:36.277 INFO svxlink    |
+13:59:36.277 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:36.277 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:36.277 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:59:36.278 INFO svxlink    |
+13:59:36.278 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:59:36.278 INFO svxlink    | --- Using sample rate 16000Hz
+13:59:36.278 INFO svxlink    |
+13:59:36.278 INFO svxlink    | Starting logic: RepeaterLogic
+13:59:36.278 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:59:36.278 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:59:36.278 INFO svxlink    | 	Adding receiver: remote1
+13:59:36.278 INFO svxlink    | 	Adding receiver: remote2
+13:59:36.278 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:59:36.278 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:59:36.278 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:59:36.278 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:59:37.309 INFO startup done
+13:59:37.309 INFO setting squelch for remote1 to O
+13:59:37.359 INFO setting squelch for remote2 to O
+13:59:37.389 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:59:37.389 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:59:37.389 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:59:37.390 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:59:37.390 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:59:37.390 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:37.390 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:37.390 INFO remote1    | LocalSim: The squelch is OPEN
+13:59:37.390 INFO svxlink    | Tx1: Turning the transmitter ON
+13:59:37.399 INFO disabling remote1
+13:59:37.453 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:37.453 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:37.453 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:37.453 INFO remote2    | LocalSim: The squelch is OPEN
+13:59:37.460 INFO svxlink    | Voter: Muting receiver remote1
+13:59:37.460 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
+13:59:37.658 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
+13:59:37.965 INFO enabling remote1
+13:59:38.058 INFO svxlink    | Voter: Enabling receiver remote1
+13:59:38.605 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 59, 38, 508000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
+13:59:38.605 INFO True
+13:59:38.605 INFO stopping instances
+13:59:39.139 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:39.139 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:39.139 INFO remote2    |
+13:59:39.139 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:39.145 INFO svxlink    | Voter: Switching from &quot;remote2&quot; (30) to &quot;remote1&quot; (1000)
+13:59:39.145 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:59:39.145 INFO svxlink    |
+13:59:39.145 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:39.145 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:39.145 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:39.145 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:59:39.146 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:59:39.146 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:39.146 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:39.146 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
+13:59:39.164 INFO remote1    | LocalSim: SetMuteState(ALL)
+13:59:39.164 INFO remote1    |
+13:59:39.164 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:39.514 INFO remote2 exited with code 0
+13:59:39.518 INFO remote1 exited with code 0
+13:59:39.613 INFO svxlink exited with code 139<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
@@ -1028,103 +1027,105 @@ Creating svxlink ... done
 Stopping svxlink ... 
 Stopping remote2 ... 
 Stopping remote1 ... 
-Stopping remote2 ... done
 Stopping remote1 ... done
+Stopping remote2 ... done
 Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
-Removing remote2 ... done
 Removing svxlink ... done
 Removing remote1 ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:14:44.566 INFO starting instances
-21:14:47.270 INFO Started log tailing
-21:14:47.510 INFO waiting for remotes to connect
-21:14:48.122 INFO Attaching to svxlink, remote2, remote1
-21:14:48.122 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:48.125 INFO remote1    |
-21:14:48.126 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:48.126 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:48.126 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:48.126 INFO remote1    |
-21:14:48.126 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:48.127 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:48.127 INFO remote1    | RX: LocalSim
-21:14:48.127 INFO remote1    | TX: NONE
-21:14:48.127 INFO remote1    |
-21:14:48.127 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:35816
-21:14:48.128 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:48.128 INFO remote2    |
-21:14:48.128 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:48.128 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:48.129 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:48.129 INFO remote2    |
-21:14:48.129 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:48.129 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:48.129 INFO remote2    | RX: LocalSim
-21:14:48.130 INFO remote2    | TX: NONE
-21:14:48.130 INFO remote2    |
-21:14:48.130 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:34658
-21:14:48.130 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:48.130 INFO svxlink    |
-21:14:48.131 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:48.131 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:48.131 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:48.131 INFO svxlink    |
-21:14:48.131 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:48.132 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:48.132 INFO svxlink    |
-21:14:48.132 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:48.132 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:48.133 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:48.133 INFO svxlink    | 	Adding receiver: remote1
-21:14:48.133 INFO svxlink    | 	Adding receiver: remote2
-21:14:48.133 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:48.133 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:48.134 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:48.134 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:14:49.078 INFO startup done
-21:14:49.078 INFO disabling remote1
-21:14:49.130 INFO setting squelch for remote1 to O
-21:14:49.188 INFO enabling remote1
-21:14:49.195 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:14:49.195 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:14:49.195 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:14:49.196 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:14:49.196 INFO svxlink    | Voter: Muting receiver remote1
-21:14:49.264 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:49.264 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:49.264 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:14:49.264 INFO remote1    | LocalSim: The squelch is OPEN
-21:14:49.264 INFO svxlink    | Voter[remote1]: The squelch is OPEN (siglev=1000) [MUTED]
-21:14:49.294 INFO svxlink    | Voter: Enabling receiver remote1
-21:14:49.294 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:14:49.295 INFO svxlink    | Tx1: Turning the transmitter ON
-21:14:49.295 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 14, 49, 293000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
-21:14:49.296 INFO True
-21:14:49.296 INFO stopping instances
-21:14:49.820 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:49.820 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:49.820 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:49.822 INFO remote2    |
-21:14:49.822 INFO remote2    | SIGTERM received. Shutting down application...
-21:14:49.829 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:49.829 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:49.829 INFO remote1    |
-21:14:49.829 INFO remote1    | SIGTERM received. Shutting down application...
-21:14:49.830 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
-21:14:49.830 INFO svxlink    | remote1: Disconnected from remote receiver 172.17.0.1:5211: Connection closed by remote peer
-21:14:49.830 INFO svxlink    |
-21:14:49.831 INFO svxlink    | SIGTERM received. Shutting down application...
-21:14:49.831 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:14:50.070 INFO remote2 exited with code 0
-21:14:50.120 INFO remote1 exited with code 0
-21:14:50.235 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
+Removing remote2 ... done
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:39.726 INFO starting instances
+13:59:42.377 INFO Started log tailing
+13:59:42.587 INFO waiting for remotes to connect
+13:59:43.272 INFO Attaching to svxlink, remote2, remote1
+13:59:43.272 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:43.272 INFO remote1    |
+13:59:43.272 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:43.273 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:43.273 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:59:43.273 INFO remote1    |
+13:59:43.273 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:43.273 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:43.273 INFO remote1    | RX: LocalSim
+13:59:43.273 INFO remote1    | TX: NONE
+13:59:43.273 INFO remote1    |
+13:59:43.273 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:39812
+13:59:43.273 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:43.274 INFO remote2    |
+13:59:43.274 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:43.274 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:43.274 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:59:43.274 INFO remote2    |
+13:59:43.274 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:43.274 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:43.274 INFO remote2    | RX: LocalSim
+13:59:43.274 INFO remote2    | TX: NONE
+13:59:43.274 INFO remote2    |
+13:59:43.274 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:38848
+13:59:43.274 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:43.274 INFO svxlink    |
+13:59:43.275 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:43.275 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:43.275 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:59:43.275 INFO svxlink    |
+13:59:43.275 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:59:43.275 INFO svxlink    | --- Using sample rate 16000Hz
+13:59:43.275 INFO svxlink    |
+13:59:43.275 INFO svxlink    | Starting logic: RepeaterLogic
+13:59:43.275 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:59:43.275 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:59:43.275 INFO svxlink    | 	Adding receiver: remote1
+13:59:43.275 INFO svxlink    | 	Adding receiver: remote2
+13:59:43.276 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:59:43.276 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:59:43.276 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:59:43.276 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:59:44.169 INFO startup done
+13:59:44.169 INFO disabling remote1
+13:59:44.230 INFO setting squelch for remote1 to O
+13:59:44.281 INFO enabling remote1
+13:59:44.308 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:59:44.308 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:59:44.308 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:59:44.308 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:59:44.308 INFO svxlink    | Voter: Muting receiver remote1
+13:59:44.337 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:44.337 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:44.337 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:59:44.337 INFO remote1    | LocalSim: The squelch is OPEN
+13:59:44.338 INFO svxlink    | Voter[remote1]: The squelch is OPEN (siglev=1000) [MUTED]
+13:59:44.408 INFO svxlink    | Voter: Enabling receiver remote1
+13:59:44.408 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:59:44.409 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 59, 44, 407000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 0, &#x27;sql_open&#x27;: False}}
+13:59:44.409 INFO True
+13:59:44.409 INFO svxlink    | Tx1: Turning the transmitter ON
+13:59:44.409 INFO stopping instances
+13:59:44.946 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:44.946 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:44.946 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:44.946 INFO remote2    |
+13:59:44.946 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:44.960 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:44.961 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:44.962 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
+13:59:44.962 INFO remote1    | LocalSim: SetMuteState(ALL)
+13:59:44.962 INFO remote1    | NetUplinkTrx: Client disconnected: 172.17.0.1:39812
+13:59:44.962 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:59:44.962 INFO svxlink    |
+13:59:44.962 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:44.962 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:44.962 INFO remote1    |
+13:59:44.963 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:45.280 INFO remote1 exited with code 0
+13:59:45.280 INFO remote2 exited with code 0
+13:59:45.406 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_switchback_to_higher_with_squelch</td>
-          <td class="col-duration">5.95</td>
+          <td class="col-duration">5.67</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1146,90 +1147,91 @@ Removing remote1 ...
 Removing remote2 ... done
 Removing remote1 ... done
 Removing svxlink ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:14:50.360 INFO starting instances
-21:14:53.088 INFO Started log tailing
-21:14:53.335 INFO waiting for remotes to connect
-21:14:53.912 INFO Attaching to svxlink, remote2, remote1
-21:14:53.912 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:53.913 INFO remote1    |
-21:14:53.913 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:53.913 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:53.913 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:53.913 INFO remote1    |
-21:14:53.914 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:53.914 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:53.914 INFO remote1    | RX: LocalSim
-21:14:53.914 INFO remote1    | TX: NONE
-21:14:53.914 INFO remote1    |
-21:14:53.914 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:35826
-21:14:53.914 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:53.914 INFO remote2    |
-21:14:53.914 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:53.914 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:53.914 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:53.914 INFO remote2    |
-21:14:53.914 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:53.915 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:53.915 INFO remote2    | RX: LocalSim
-21:14:53.915 INFO remote2    | TX: NONE
-21:14:53.915 INFO remote2    |
-21:14:53.915 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:34668
-21:14:53.916 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:53.916 INFO svxlink    |
-21:14:53.916 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:53.916 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:53.917 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:53.917 INFO svxlink    |
-21:14:53.917 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:53.917 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:53.917 INFO svxlink    |
-21:14:53.917 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:53.917 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:53.917 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:53.918 INFO svxlink    | 	Adding receiver: remote1
-21:14:53.918 INFO svxlink    | 	Adding receiver: remote2
-21:14:53.918 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:53.918 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:53.918 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:53.918 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:14:54.959 INFO startup done
-21:14:54.960 INFO setting squelch for remote1 to O
-21:14:55.025 INFO setting squelch for remote2 to O
-21:14:55.103 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:55.104 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:55.104 INFO remote1    | LocalSim: The squelch is OPEN
-21:14:55.104 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:14:55.104 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:14:55.104 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:14:55.104 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:14:55.104 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:14:55.104 INFO svxlink    | Tx1: Turning the transmitter ON
-21:14:55.106 INFO setting squelch for remote2 to Z
-21:14:55.110 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:14:55.110 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:14:55.111 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:14:55.111 INFO remote2    | LocalSim: The squelch is OPEN
-21:14:55.170 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 14, 55, 109000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
-21:14:55.171 INFO True
-21:14:55.171 INFO stopping instances
-21:14:55.210 INFO remote2    | LocalSim: The squelch is CLOSED
-21:14:55.702 INFO remote2    |
-21:14:55.702 INFO remote2    | SIGTERM received. Shutting down application...
-21:14:55.713 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
-21:14:55.713 INFO svxlink    |
-21:14:55.713 INFO svxlink    | SIGTERM received. Shutting down application...
-21:14:55.713 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:14:55.713 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:14:55.713 INFO remote1    |
-21:14:55.713 INFO remote1    | SIGTERM received. Shutting down application...
-21:14:56.094 INFO remote2 exited with code 0
-21:14:56.099 INFO remote1 exited with code 0
-21:14:56.195 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:45.517 INFO starting instances
+13:59:48.162 INFO Started log tailing
+13:59:48.373 INFO waiting for remotes to connect
+13:59:49.034 INFO Attaching to svxlink, remote2, remote1
+13:59:49.034 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:49.035 INFO remote1    |
+13:59:49.035 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:49.038 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:49.039 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:59:49.039 INFO remote1    |
+13:59:49.039 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:49.040 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:49.040 INFO remote1    | RX: LocalSim
+13:59:49.040 INFO remote1    | TX: NONE
+13:59:49.041 INFO remote1    |
+13:59:49.041 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:32976
+13:59:49.041 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:49.041 INFO remote2    |
+13:59:49.042 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:49.042 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:49.042 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:59:49.043 INFO remote2    |
+13:59:49.043 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:49.043 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:49.044 INFO remote2    | RX: LocalSim
+13:59:49.044 INFO remote2    | TX: NONE
+13:59:49.044 INFO remote2    |
+13:59:49.044 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:48208
+13:59:49.044 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:49.044 INFO svxlink    |
+13:59:49.044 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:49.044 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:49.044 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:59:49.045 INFO svxlink    |
+13:59:49.045 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:59:49.045 INFO svxlink    | --- Using sample rate 16000Hz
+13:59:49.045 INFO svxlink    |
+13:59:49.045 INFO svxlink    | Starting logic: RepeaterLogic
+13:59:49.045 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:59:49.045 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:59:49.045 INFO svxlink    | 	Adding receiver: remote1
+13:59:49.045 INFO svxlink    | 	Adding receiver: remote2
+13:59:49.045 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:59:49.045 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:59:49.045 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:59:49.045 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:59:49.905 INFO startup done
+13:59:49.906 INFO setting squelch for remote1 to O
+13:59:49.952 INFO setting squelch for remote2 to O
+13:59:50.039 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:50.040 INFO setting squelch for remote2 to Z
+13:59:50.041 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:59:50.041 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:59:50.042 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:59:50.044 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:59:50.044 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:59:50.044 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:50.044 INFO remote1    | LocalSim: The squelch is OPEN
+13:59:50.044 INFO svxlink    | Tx1: Turning the transmitter ON
+13:59:50.094 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:50.095 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:50.095 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:50.095 INFO remote2    | LocalSim: The squelch is OPEN
+13:59:50.095 INFO remote2    | LocalSim: The squelch is CLOSED
+13:59:50.096 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 59, 50, 91000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: False}}
+13:59:50.097 INFO True
+13:59:50.097 INFO stopping instances
+13:59:50.632 INFO remote2    |
+13:59:50.632 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:50.637 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:50.637 INFO remote1    |
+13:59:50.637 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:50.649 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
+13:59:50.649 INFO svxlink    | remote1: Disconnected from remote receiver 172.17.0.1:5211: Connection closed by remote peer
+13:59:50.649 INFO svxlink    |
+13:59:50.649 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:50.649 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:50.864 INFO remote2 exited with code 0
+13:59:50.919 INFO remote1 exited with code 0
+13:59:51.087 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_switchback_to_lower_with_squelch</td>
-          <td class="col-duration">6.33</td>
+          <td class="col-duration">6.24</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1248,103 +1250,101 @@ Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
-Removing remote2 ... done
 Removing svxlink ... done
 Removing remote1 ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:14:56.313 INFO starting instances
-21:14:59.015 INFO Started log tailing
-21:14:59.256 INFO waiting for remotes to connect
-21:14:59.904 INFO Attaching to svxlink, remote2, remote1
-21:14:59.905 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:59.905 INFO remote1    |
-21:14:59.905 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:59.907 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:59.907 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:14:59.907 INFO remote1    |
-21:14:59.907 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:59.907 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:59.907 INFO remote1    | RX: LocalSim
-21:14:59.907 INFO remote1    | TX: NONE
-21:14:59.907 INFO remote1    |
-21:14:59.907 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:52074
-21:14:59.907 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:59.907 INFO remote2    |
-21:14:59.907 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:59.907 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:59.908 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:14:59.908 INFO remote2    |
-21:14:59.908 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:14:59.908 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:14:59.908 INFO remote2    | RX: LocalSim
-21:14:59.908 INFO remote2    | TX: NONE
-21:14:59.908 INFO remote2    |
-21:14:59.908 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:42564
-21:14:59.918 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:14:59.918 INFO svxlink    |
-21:14:59.918 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:14:59.919 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:14:59.919 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:14:59.919 INFO svxlink    |
-21:14:59.919 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:14:59.919 INFO svxlink    | --- Using sample rate 16000Hz
-21:14:59.919 INFO svxlink    |
-21:14:59.919 INFO svxlink    | Starting logic: RepeaterLogic
-21:14:59.919 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:14:59.919 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:14:59.919 INFO svxlink    | 	Adding receiver: remote1
-21:14:59.919 INFO svxlink    | 	Adding receiver: remote2
-21:14:59.920 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:14:59.920 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:14:59.920 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:14:59.920 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:15:00.747 INFO startup done
-21:15:00.747 INFO setting squelch for remote1 to O
-21:15:00.799 INFO setting squelch for remote2 to O
-21:15:00.838 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:15:00.839 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:15:00.839 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:15:00.839 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:15:00.839 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
-21:15:00.839 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:15:00.839 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:15:00.839 INFO remote1    | LocalSim: The squelch is OPEN
-21:15:00.839 INFO svxlink    | Tx1: Turning the transmitter ON
-21:15:00.879 INFO setting squelch for remote1 to Z
-21:15:00.931 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:15:00.932 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:15:00.932 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:15:00.933 INFO remote2    | LocalSim: The squelch is OPEN
-21:15:01.038 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:15:01.038 INFO remote1    | LocalSim: The squelch is CLOSED
-21:15:01.090 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
-21:15:01.290 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
-21:15:01.540 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 15, 1, 489000), &#x27;remote1&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: False}, &#x27;remote2&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
-21:15:01.541 INFO True
-21:15:01.541 INFO stopping instances
-21:15:02.077 INFO svxlink    |
-21:15:02.077 INFO svxlink    | SIGTERM received. Shutting down application...
-21:15:02.077 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:15:02.080 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:15:02.080 INFO remote2    | LocalSim: The squelch is CLOSED (MUTED)
-21:15:02.080 INFO remote2    | LocalSim: SetMuteState(ALL)
-21:15:02.080 INFO remote2    | LocalSim: SetMuteState(ALL)
-21:15:02.080 INFO remote2    | NetUplinkTrx: Client disconnected: 172.17.0.1:42564
-21:15:02.080 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:15:02.080 INFO remote1    | LocalSim: SetMuteState(ALL)
-21:15:02.080 INFO remote1    | LocalSim: SetMuteState(ALL)
-21:15:02.089 INFO remote1    | NetUplinkTrx: Client disconnected: 172.17.0.1:52074
-21:15:02.090 INFO remote1    |
-21:15:02.090 INFO remote1    | SIGTERM received. Shutting down application...
-21:15:02.097 INFO remote2    |
-21:15:02.097 INFO remote2    | SIGTERM received. Shutting down application...
-21:15:02.355 INFO remote2 exited with code 0
-21:15:02.401 INFO remote1 exited with code 0
-21:15:02.525 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
+Removing remote2 ... done
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:51.197 INFO starting instances
+13:59:53.878 INFO Started log tailing
+13:59:54.111 INFO waiting for remotes to connect
+13:59:54.769 INFO Attaching to svxlink, remote2, remote1
+13:59:54.770 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:54.771 INFO remote1    |
+13:59:54.771 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:54.772 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:54.772 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+13:59:54.773 INFO remote1    |
+13:59:54.774 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:54.775 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:54.775 INFO remote1    | RX: LocalSim
+13:59:54.775 INFO remote1    | TX: NONE
+13:59:54.776 INFO remote1    |
+13:59:54.776 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:32982
+13:59:54.777 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:54.777 INFO remote2    |
+13:59:54.777 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:54.778 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:54.778 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+13:59:54.779 INFO remote2    |
+13:59:54.779 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+13:59:54.779 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+13:59:54.780 INFO remote2    | RX: LocalSim
+13:59:54.780 INFO remote2    | TX: NONE
+13:59:54.781 INFO remote2    |
+13:59:54.781 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:48222
+13:59:54.781 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+13:59:54.782 INFO svxlink    |
+13:59:54.782 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+13:59:54.782 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+13:59:54.783 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+13:59:54.783 INFO svxlink    |
+13:59:54.783 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+13:59:54.784 INFO svxlink    | --- Using sample rate 16000Hz
+13:59:54.784 INFO svxlink    |
+13:59:54.784 INFO svxlink    | Starting logic: RepeaterLogic
+13:59:54.784 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+13:59:54.784 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+13:59:54.784 INFO svxlink    | 	Adding receiver: remote1
+13:59:54.784 INFO svxlink    | 	Adding receiver: remote2
+13:59:54.784 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+13:59:54.784 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+13:59:54.784 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+13:59:54.784 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+13:59:55.601 INFO startup done
+13:59:55.601 INFO setting squelch for remote1 to O
+13:59:55.662 INFO setting squelch for remote2 to O
+13:59:55.721 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+13:59:55.722 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+13:59:55.723 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+13:59:55.723 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+13:59:55.724 INFO svxlink    | Voter: The squelch is OPEN (remote1[]=1000)
+13:59:55.724 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:55.724 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:55.723 INFO setting squelch for remote1 to Z
+13:59:55.724 INFO remote1    | LocalSim: The squelch is OPEN
+13:59:55.725 INFO svxlink    | Tx1: Turning the transmitter ON
+13:59:55.803 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:55.804 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+13:59:55.804 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+13:59:55.804 INFO remote2    | LocalSim: The squelch is OPEN
+13:59:55.821 INFO remote1    | LocalSim: SetMuteState(NONE)
+13:59:55.821 INFO remote1    | LocalSim: The squelch is CLOSED
+13:59:55.877 INFO svxlink    | Voter: The squelch is CLOSED (remote1[]=1000)
+13:59:56.077 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
+13:59:56.327 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 13, 59, 56, 276000), &#x27;remote1&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: False}, &#x27;remote2&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
+13:59:56.327 INFO True
+13:59:56.327 INFO stopping instances
+13:59:56.870 INFO svxlink    |
+13:59:56.870 INFO svxlink    | SIGTERM received. Shutting down application...
+13:59:56.870 INFO svxlink    | Tx1: Turning the transmitter OFF
+13:59:56.870 INFO remote2    | LocalSim: SetMuteState(NONE)
+13:59:56.870 INFO remote2    | LocalSim: The squelch is CLOSED (MUTED)
+13:59:56.870 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+13:59:56.870 INFO remote1    | LocalSim: SetMuteState(ALL)
+13:59:56.870 INFO remote1    | LocalSim: SetMuteState(ALL)
+13:59:56.871 INFO remote1    | NetUplinkTrx: Client disconnected: 172.17.0.1:32982
+13:59:56.872 INFO remote2    | LocalSim: SetMuteState(ALL)
+13:59:56.872 INFO remote2    |
+13:59:56.872 INFO remote2    | SIGTERM received. Shutting down application...
+13:59:56.885 INFO remote1    |
+13:59:56.886 INFO remote1    | SIGTERM received. Shutting down application...
+13:59:57.220 INFO remote1 exited with code 0
+13:59:57.221 INFO remote2 exited with code 0
+13:59:57.326 INFO svxlink exited with code 0<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_original.py::Test::test_switchover_with_squelch</td>
-          <td class="col-duration">6.55</td>
+          <td class="col-duration">6.44</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1357,95 +1357,97 @@ Creating svxlink ... done
 Stopping svxlink ... 
 Stopping remote2 ... 
 Stopping remote1 ... 
-Stopping remote2 ... done
 Stopping remote1 ... done
+Stopping remote2 ... done
 Stopping svxlink ... done
 Removing svxlink ... 
 Removing remote2 ... 
 Removing remote1 ... 
-Removing remote2 ... done
 Removing remote1 ... done
 Removing svxlink ... done
-<br/> -------------------------------Captured log call-------------------------------- <br/>21:15:02.645 INFO starting instances
-21:15:05.408 INFO Started log tailing
-21:15:05.640 INFO waiting for remotes to connect
-21:15:06.372 INFO Attaching to svxlink, remote2, remote1
-21:15:06.372 INFO remote1    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:15:06.372 INFO remote1    |
-21:15:06.372 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:15:06.372 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
-21:15:06.372 INFO remote1    | GNU GPL (General Public License) version 2 or later.
-21:15:06.372 INFO remote1    |
-21:15:06.373 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:15:06.373 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
-21:15:06.373 INFO remote1    | RX: LocalSim
-21:15:06.373 INFO remote1    | TX: NONE
-21:15:06.373 INFO remote1    |
-21:15:06.373 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:52082
-21:15:06.373 INFO remote2    | RemoteTrx v1.3.99.14 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:15:06.373 INFO remote2    |
-21:15:06.373 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:15:06.373 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
-21:15:06.373 INFO remote2    | GNU GPL (General Public License) version 2 or later.
-21:15:06.373 INFO remote2    |
-21:15:06.373 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
-21:15:06.373 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
-21:15:06.373 INFO remote2    | RX: LocalSim
-21:15:06.373 INFO remote2    | TX: NONE
-21:15:06.374 INFO remote2    |
-21:15:06.374 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:42578
-21:15:06.374 INFO svxlink    | SvxLink v1.7.99.84 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
-21:15:06.374 INFO svxlink    |
-21:15:06.374 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
-21:15:06.374 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
-21:15:06.374 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
-21:15:06.374 INFO svxlink    |
-21:15:06.374 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
-21:15:06.374 INFO svxlink    | --- Using sample rate 16000Hz
-21:15:06.374 INFO svxlink    |
-21:15:06.374 INFO svxlink    | Starting logic: RepeaterLogic
-21:15:06.374 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
-21:15:06.374 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
-21:15:06.374 INFO svxlink    | 	Adding receiver: remote1
-21:15:06.374 INFO svxlink    | 	Adding receiver: remote2
-21:15:06.375 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
-21:15:06.375 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
-21:15:06.375 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
-21:15:06.375 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
-21:15:07.255 INFO startup done
-21:15:07.255 INFO setting squelch for remote2 to O
-21:15:07.376 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:15:07.377 INFO setting squelch for remote1 to O
-21:15:07.377 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:15:07.379 INFO remote2    | LocalSim: The squelch is OPEN
-21:15:07.380 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
-21:15:07.380 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
-21:15:07.380 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
-21:15:07.380 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
-21:15:07.380 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
-21:15:07.380 INFO svxlink    | Tx1: Turning the transmitter ON
-21:15:07.478 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:15:07.479 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
-21:15:07.479 INFO remote1    | LocalSim: SetMuteState(CONTENT)
-21:15:07.480 INFO remote1    | LocalSim: The squelch is OPEN
-21:15:08.082 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 18, 21, 15, 8, 26000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
-21:15:08.082 INFO True
-21:15:08.082 INFO stopping instances
-21:15:08.614 INFO remote2    | LocalSim: SetMuteState(NONE)
-21:15:08.614 INFO remote2    | LocalSim: SetMuteState(CONTENT)
-21:15:08.614 INFO remote2    |
-21:15:08.614 INFO remote2    | SIGTERM received. Shutting down application...
-21:15:08.632 INFO svxlink    | Voter: Switching from &quot;remote2&quot; (30) to &quot;remote1&quot; (1000)
-21:15:08.632 INFO svxlink    | remote2: Disconnected from remote receiver 172.17.0.1:5212: Connection closed by remote peer
-21:15:08.632 INFO svxlink    |
-21:15:08.632 INFO svxlink    | SIGTERM received. Shutting down application...
-21:15:08.632 INFO svxlink    | Tx1: Turning the transmitter OFF
-21:15:08.632 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:15:08.632 INFO remote1    | LocalSim: SetMuteState(NONE)
-21:15:08.633 INFO remote1    | LocalSim: The squelch is CLOSED (MUTED)
-21:15:08.633 INFO remote1    | LocalSim: SetMuteState(ALL)
-21:15:08.633 INFO remote1    |
-21:15:08.633 INFO remote1    | SIGTERM received. Shutting down application...
-21:15:08.911 INFO remote2 exited with code 0
-21:15:08.968 INFO remote1 exited with code 0
-21:15:09.089 INFO svxlink exited with code 0<br/></div></td></tr></tbody></table></body></html>
+Removing remote2 ... done
+<br/> -------------------------------Captured log call-------------------------------- <br/>13:59:57.445 INFO starting instances
+14:00:00.132 INFO Started log tailing
+14:00:00.355 INFO waiting for remotes to connect
+14:00:01.052 INFO Attaching to svxlink, remote2, remote1
+14:00:01.053 INFO remote1    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+14:00:01.053 INFO remote1    |
+14:00:01.053 INFO remote1    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+14:00:01.053 INFO remote1    | welcome to redistribute it in accordance with the terms and conditions in the
+14:00:01.053 INFO remote1    | GNU GPL (General Public License) version 2 or later.
+14:00:01.053 INFO remote1    |
+14:00:01.053 INFO remote1    | Using configuration file: /etc/svxlink/remotetrx.conf
+14:00:01.053 INFO remote1    | Setting up trx &quot;NetUplinkTrx&quot;
+14:00:01.054 INFO remote1    | RX: LocalSim
+14:00:01.054 INFO remote1    | TX: NONE
+14:00:01.054 INFO remote1    |
+14:00:01.054 INFO remote1    | NetUplinkTrx: Client connected: 172.17.0.1:52534
+14:00:01.054 INFO remote2    | RemoteTrx v1.3.99.15 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+14:00:01.054 INFO remote2    |
+14:00:01.054 INFO remote2    | RemoteTrx comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+14:00:01.054 INFO remote2    | welcome to redistribute it in accordance with the terms and conditions in the
+14:00:01.054 INFO remote2    | GNU GPL (General Public License) version 2 or later.
+14:00:01.054 INFO remote2    |
+14:00:01.054 INFO remote2    | Using configuration file: /etc/svxlink/remotetrx.conf
+14:00:01.054 INFO remote2    | Setting up trx &quot;NetUplinkTrx&quot;
+14:00:01.054 INFO remote2    | RX: LocalSim
+14:00:01.055 INFO remote2    | TX: NONE
+14:00:01.055 INFO remote2    |
+14:00:01.055 INFO remote2    | NetUplinkTrx: Client connected: 172.17.0.1:49226
+14:00:01.055 INFO svxlink    | SvxLink v1.7.99.85 Copyright (C) 2003-2023 Tobias Blomberg / SM0SVX
+14:00:01.055 INFO svxlink    |
+14:00:01.055 INFO svxlink    | SvxLink comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+14:00:01.055 INFO svxlink    | welcome to redistribute it in accordance with the terms and conditions in the
+14:00:01.056 INFO svxlink    | GNU GPL (General Public License) version 2 or later.
+14:00:01.056 INFO svxlink    |
+14:00:01.056 INFO svxlink    | Using configuration file: /etc/svxlink/svxlink.conf
+14:00:01.056 INFO svxlink    | --- Using sample rate 16000Hz
+14:00:01.056 INFO svxlink    |
+14:00:01.056 INFO svxlink    | Starting logic: RepeaterLogic
+14:00:01.056 INFO svxlink    | 	Found plugin: /usr/lib/x86_64-linux-gnu/svxlink/RepeaterLogic.so
+14:00:01.057 INFO svxlink    | RepeaterLogic: Loading RX &quot;Voter&quot;
+14:00:01.057 INFO svxlink    | 	Adding receiver: remote1
+14:00:01.057 INFO svxlink    | 	Adding receiver: remote2
+14:00:01.057 INFO svxlink    | RepeaterLogic: Loading TX &quot;Tx1&quot;
+14:00:01.057 INFO svxlink    | RepeaterLogic: Event handler script successfully loaded.
+14:00:01.057 INFO svxlink    | 172.17.0.1:5211: RemoteTrx protocol version 2.8
+14:00:01.057 INFO svxlink    | 172.17.0.1:5212: RemoteTrx protocol version 2.8
+14:00:01.903 INFO startup done
+14:00:01.903 INFO setting squelch for remote2 to O
+14:00:02.047 INFO remote2    | LocalSim: SetMuteState(NONE)
+14:00:02.047 INFO remote2    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+14:00:02.047 INFO remote2    | LocalSim: The squelch is OPEN
+14:00:02.048 INFO svxlink    | remote2: Connected to remote receiver at 172.17.0.1:5212
+14:00:02.048 INFO svxlink    | remote2: Requesting CODEC &quot;S16&quot;
+14:00:02.048 INFO svxlink    | remote1: Connected to remote receiver at 172.17.0.1:5211
+14:00:02.048 INFO svxlink    | remote1: Requesting CODEC &quot;S16&quot;
+14:00:02.048 INFO svxlink    | Voter: The squelch is OPEN (remote2[]=30)
+14:00:02.048 INFO svxlink    | Tx1: Turning the transmitter ON
+14:00:02.048 INFO setting squelch for remote1 to O
+14:00:02.177 INFO remote1    | LocalSim: SetMuteState(NONE)
+14:00:02.177 INFO remote1    | NetUplinkTrx: Using CODEC &quot;S16&quot; to encode RX audio
+14:00:02.177 INFO remote1    | LocalSim: SetMuteState(CONTENT)
+14:00:02.177 INFO remote1    | LocalSim: The squelch is OPEN
+14:00:02.750 INFO {&#x27;time&#x27;: datetime.datetime(2023, 7, 19, 14, 0, 2, 696000), &#x27;remote1&#x27;: {&#x27;active&#x27;: True, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote1&#x27;, &#x27;siglev&#x27;: 1000, &#x27;sql_open&#x27;: True}, &#x27;remote2&#x27;: {&#x27;active&#x27;: False, &#x27;enabled&#x27;: True, &#x27;id&#x27;: &#x27;?&#x27;, &#x27;name&#x27;: &#x27;remote2&#x27;, &#x27;siglev&#x27;: 30, &#x27;sql_open&#x27;: True}}
+14:00:02.750 INFO True
+14:00:02.750 INFO stopping instances
+14:00:03.292 INFO remote1    | LocalSim: SetMuteState(NONE)
+14:00:03.292 INFO remote1    | LocalSim: SetMuteState(NONE)
+14:00:03.292 INFO remote1    |
+14:00:03.292 INFO remote1    | SIGTERM received. Shutting down application...
+14:00:03.293 INFO svxlink    | Voter: Switching from &quot;remote2&quot; (30) to &quot;remote1&quot; (1000)
+14:00:03.293 INFO svxlink    | remote1: Disconnected from remote receiver 172.17.0.1:5211: Connection closed by remote peer
+14:00:03.294 INFO svxlink    |
+14:00:03.294 INFO svxlink    | SIGTERM received. Shutting down application...
+14:00:03.294 INFO svxlink    | Tx1: Turning the transmitter OFF
+14:00:03.294 INFO remote2    | LocalSim: SetMuteState(NONE)
+14:00:03.294 INFO remote2    | LocalSim: SetMuteState(CONTENT)
+14:00:03.294 INFO remote2    | LocalSim: The squelch is CLOSED (MUTED)
+14:00:03.294 INFO remote2    | LocalSim: SetMuteState(ALL)
+14:00:03.294 INFO remote2    | LocalSim: SetMuteState(ALL)
+14:00:03.294 INFO remote2    | NetUplinkTrx: Client disconnected: 172.17.0.1:49226
+14:00:03.322 INFO remote2    |
+14:00:03.322 INFO remote2    | SIGTERM received. Shutting down application...
+14:00:03.570 INFO remote1 exited with code 0
+14:00:03.599 INFO remote2 exited with code 0
+14:00:03.774 INFO svxlink exited with code 0<br/></div></td></tr></tbody></table></body></html>
