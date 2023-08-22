@@ -259,13 +259,13 @@ class Environment:
             result[item["name"]] = item
         return result
 
-    def wait_for_remote_state(self, name: str, state: str, expected: bool, timeout: int):
+    def wait_for_remote_state(self, name: str, state: str, expected: any, timeout: int):
         """
         wait for a remote to have state set to expected, with a timeout
-        :param state: ["active", "enabled", "sql_open"]
-        :param name:
-        :param expected:
-        :param timeout:
+        :param state: ["active", "enabled", "sql_open", "siglev", ]
+        :param name: receiver name
+        :param expected: value to expect
+        :param timeout: in seconds
         :return:
         """
         start = datetime.now()

@@ -1,6 +1,8 @@
 """
 This file tests the functions that we did not patch. Just to make sure these still work correctly
 """
+import time
+
 from environment import Environment
 import logging
 import unittest
@@ -125,6 +127,7 @@ class Test(unittest.TestCase):
         So it needs the squelch of the disabled receiver to toggle.
         """
         self.env.open_squelch("remote1", True)
+        time.sleep(1)  # wait for TX to open up at least once, or there will be no state when we check
         self.env.disable_remote("remote1")
         self.assertEqual(self.env.wait_for_ptt(False, WAIT_TIME*4), True, "transmitter should be off")
         self.env.enable_remote("remote1")
@@ -152,6 +155,50 @@ class Test(unittest.TestCase):
         self.env.enable_remote("remote1")
         self.assertEqual(self.env.wait_for_remote_state("remote1", "active", True, WAIT_TIME), True, "remote1 should become active")
         self.assertEqual(self.env.wait_for_remote_by_tone("remote1", WAIT_TIME), True, "remote1 should be audible")
+
+    def test_send_all_fields_when_rx_disabled(self):
+        """
+        When a receiver is disabled, we still want all fields to be present in the squelchstate, so the admin can see if
+        it still receives traffic.
+        """
+        self.env.open_squelch("remote1", True)
+        self.env.open_squelch("remote2", True)
+        self.env.disable_remote("remote1")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "enabled", False, WAIT_TIME), True, "remote1 should be disabled")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "siglev", 1000, WAIT_TIME), True, "remote1 should have `siglev`")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "active", False, WAIT_TIME), True, "remote1 should have `active`")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "sql_open", True, WAIT_TIME), True, "remote1 should have `sql_open`")
+        self.env.open_squelch("remote1", False)
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "sql_open", False, WAIT_TIME), True, "remote1 should have `sql_open` after change")
+
+    def test_send_all_fields_when_rx_disabled_no_tx(self):
+        """
+        When a receiver is disabled, we still want all fields to be present in the squelchstate, so the admin can see if
+        it still receives traffic.
+        This should also work if the TX is off
+        """
+        self.env.disable_remote("remote1")
+        time.sleep(1)  # make sure this gets registered or opening the sql below will open TX
+        self.env.open_squelch("remote1", True)
+        time.sleep(1)  # we can't wait for the TX state as it never opened, so it's not logging yet
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "enabled", False, WAIT_TIME), True, "remote1 should be disabled")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "siglev", 1000, WAIT_TIME), True, "remote1 should have `siglev`")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "active", False, WAIT_TIME), True, "remote1 should have `active`")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "sql_open", True, WAIT_TIME), True, "remote1 should have `sql_open`")
+        self.env.open_squelch("remote1", False)
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "sql_open", False, WAIT_TIME), True, "remote1 should have `sql_open` after change")
+
+
+    def test_status_update_on_disable_no_tx(self):
+        """
+        When a receiver is enabled/disabled, we want a line to be logged in the squelchstate, even if the TX is off
+        (so it doesn't log it because the TX is open).
+        :return:
+        """
+        self.env.disable_remote("remote1")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "enabled", False, WAIT_TIME), True, "remote1 should be disabled")
+        self.env.enable_remote("remote1")
+        self.assertEqual(self.env.wait_for_remote_state("remote1", "enabled", True, WAIT_TIME), True, "remote1 should be enabled")
 
 
 if __name__ == '__main__':
